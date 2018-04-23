@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AssociateCompany" xml:space="preserve">
+    <value>Associate Company</value>
+  </data>
+  <data name="btnAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="btnAddRows" xml:space="preserve">
+    <value>Add rows</value>
+  </data>
+  <data name="btnBack" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="btnCapture" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <data name="btnChooseFromCamera" xml:space="preserve">
+    <value>Take a Picture</value>
+  </data>
+  <data name="btnChooseFromGallary" xml:space="preserve">
+    <value>Choose From Gallery</value>
+  </data>
+  <data name="btnClear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="btnContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="btnEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="btnNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="btnRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="btnRegisterExternalDoctor" xml:space="preserve">
+    <value>Register External Doctor</value>
+  </data>
+  <data name="btnRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnSaveAndBill" xml:space="preserve">
+    <value>Save and Bill</value>
+  </data>
+  <data name="btnSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="btnUpdate" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="btnVisit" xml:space="preserve">
+    <value>Visit</value>
+  </data>
+  <data name="categoryL1" xml:space="preserve">
+    <value>Category L1</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="CodeRegExp" xml:space="preserve">
+    <value>Enter Alphanumeric And Special Characters(-, :, /, _)</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Form_Header" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="Grid_Header" xml:space="preserve">
+    <value>Specialization List</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="inValidAppointmentSelected" xml:space="preserve">
+    <value>Sorry !!! Doctor Is Not Available At This Time Slot , Please Select Slot Within Green Color</value>
+  </data>
+  <data name="IsCityReq" xml:space="preserve">
+    <value>Select City</value>
+  </data>
+  <data name="IsCodeRequired" xml:space="preserve">
+    <value>Code is required.</value>
+  </data>
+  <data name="IsCountryReq" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="IsDescriptionRequired" xml:space="preserve">
+    <value>Description is required</value>
+  </data>
+  <data name="IsStateReq" xml:space="preserve">
+    <value>Select State</value>
+  </data>
+  <data name="items_per_page" xml:space="preserve">
+    <value>items per page</value>
+  </data>
+  <data name="lblAccountLockDuration" xml:space="preserve">
+    <value>Account Lock Duration</value>
+  </data>
+  <data name="lblAccountLockThreshold" xml:space="preserve">
+    <value>Account Lock Threshold</value>
+  </data>
+  <data name="lblActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="lblAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="lblAdditionalInformation" xml:space="preserve">
+    <value>Additional Information</value>
+  </data>
+  <data name="lblAddPayer" xml:space="preserve">
+    <value>Add Payer</value>
+  </data>
+  <data name="lblAddress1" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="lblAddress2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="lblAddressFor" xml:space="preserve">
+    <value>Address For</value>
+  </data>
+  <data name="lblAddressLine01" xml:space="preserve">
+    <value>Address Line 01</value>
+  </data>
+  <data name="lblAddressLine02" xml:space="preserve">
+    <value>Address Line 02</value>
+  </data>
+  <data name="lblAddressLine1" xml:space="preserve">
+    <value>Address Line 1</value>
+  </data>
+  <data name="lblAddressLine2" xml:space="preserve">
+    <value>Address Line 2</value>
+  </data>
+  <data name="lblAddressType" xml:space="preserve">
+    <value>Address Type</value>
+  </data>
+  <data name="lblAdhesions" xml:space="preserve">
+    <value>Adhesions</value>
+  </data>
+  <data name="lblAdvanceAgainst" xml:space="preserve">
+    <value>Reason For Advance Payment</value>
+  </data>
+  <data name="lblAdvanceSearch" xml:space="preserve">
+    <value>Advanced Search</value>
+  </data>
+  <data name="lblAge" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="lblAgeFrom" xml:space="preserve">
+    <value>Age From</value>
+  </data>
+  <data name="lblAgent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="lblAgeTo" xml:space="preserve">
+    <value>Age - To</value>
+  </data>
+  <data name="lblAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="lblAllToCSV" xml:space="preserve">
+    <value>Download all records to CSV</value>
+  </data>
+  <data name="lblAllToPDF" xml:space="preserve">
+    <value>Download all records to PDF</value>
+  </data>
+  <data name="lblAlternateAddress" xml:space="preserve">
+    <value>Alternate Address</value>
+  </data>
+  <data name="lblAltLandlineNo" xml:space="preserve">
+    <value>Alt Landline No</value>
+  </data>
+  <data name="lblAltMob" xml:space="preserve">
+    <value>Alt Mobile No.</value>
+  </data>
+  <data name="lblAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lblAnesthesiaType" xml:space="preserve">
+    <value>Anesthesia Type</value>
+  </data>
+  <data name="lblAnniversary" xml:space="preserve">
+    <value>Anniversary</value>
+  </data>
+  <data name="lblAppoinmentTime" xml:space="preserve">
+    <value>Appoinment Time</value>
+  </data>
+  <data name="lblAppointmentReason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="lblArea" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="lblArtDay" xml:space="preserve">
+    <value>ART Day</value>
+  </data>
+  <data name="lblAssCompanyActiveDeactiveMessage" xml:space="preserve">
+    <value>Associate Company activate/deactivate successful.</value>
+  </data>
+  <data name="lblAssignClass" xml:space="preserve">
+    <value>Assign Class</value>
+  </data>
+  <data name="lblAssignClassification" xml:space="preserve">
+    <value>Assign Classification</value>
+  </data>
+  <data name="lblAssignClinic" xml:space="preserve">
+    <value>Assign Clinic - Department</value>
+  </data>
+  <data name="lblAssignTariff" xml:space="preserve">
+    <value>Assign Tariff</value>
+  </data>
+  <data name="lblAssociateCompany" xml:space="preserve">
+    <value>Associate Company</value>
+  </data>
+  <data name="lblAssoCompany" xml:space="preserve">
+    <value>Asso. Company</value>
+  </data>
+  <data name="lblAtleastoneDigit" xml:space="preserve">
+    <value>Atleast One Digit</value>
+  </data>
+  <data name="lblAtleastoneLowerCharacter" xml:space="preserve">
+    <value>Atleast OneLower Character</value>
+  </data>
+  <data name="lblAtleastoneSpecialCharacter" xml:space="preserve">
+    <value>Atleast One Special Character</value>
+  </data>
+  <data name="lblAtleastoneUppercaseCharacter" xml:space="preserve">
+    <value>Atleast One Uppercase Character</value>
+  </data>
+  <data name="lblAttach" xml:space="preserve">
+    <value>Attach</value>
+  </data>
+  <data name="lblAttachIDProof" xml:space="preserve">
+    <value>Attach ID Proof</value>
+  </data>
+  <data name="lblBalancePayment" xml:space="preserve">
+    <value>Balance Payment</value>
+  </data>
+  <data name="lblBank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="lblBaseRate" xml:space="preserve">
+    <value>Base Rate</value>
+  </data>
+  <data name="lblBloodGroup" xml:space="preserve">
+    <value>Blood Group</value>
+  </data>
+  <data name="lblCabin" xml:space="preserve">
+    <value>Cabin</value>
+  </data>
+  <data name="lblCanister" xml:space="preserve">
+    <value>Canister</value>
+  </data>
+  <data name="lblCaptImg" xml:space="preserve">
+    <value>Please Capture your Image</value>
+  </data>
+  <data name="lblCategoryL1" xml:space="preserve">
+    <value>Patient Source</value>
+  </data>
+  <data name="lblCategoryL2" xml:space="preserve">
+    <value>Patient Category</value>
+  </data>
+  <data name="lblCatheter" xml:space="preserve">
+    <value>Catheter</value>
+  </data>
+  <data name="lblCellStage" xml:space="preserve">
+    <value>Cell Stage</value>
+  </data>
+  <data name="lblCerviDialatation" xml:space="preserve">
+    <value>Cervical Dialatation</value>
+  </data>
+  <data name="lblChar" xml:space="preserve">
+    <value>char</value>
+  </data>
+  <data name="lblCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="lblClass" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="lblClassification" xml:space="preserve">
+    <value>Classification</value>
+  </data>
+  <data name="lblClassMaster" xml:space="preserve">
+    <value>ClassMaster</value>
+  </data>
+  <data name="lblClearFilter" xml:space="preserve">
+    <value>Clear Filters</value>
+  </data>
+  <data name="lblClinic" xml:space="preserve">
+    <value>Clinic</value>
+  </data>
+  <data name="lblClinicUsrRole" xml:space="preserve">
+    <value>Clinic - User Role</value>
+  </data>
+  <data name="lblCloseVisit" xml:space="preserve">
+    <value>Close Visit</value>
+  </data>
+  <data name="lblCodeType" xml:space="preserve">
+    <value>Code Type</value>
+  </data>
+  <data name="lblColumn" xml:space="preserve">
+    <value>Columns :</value>
+  </data>
+  <data name="lblCompany" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="lblCompanyActiveDeactiveMessage" xml:space="preserve">
+    <value>Company activate/deactivate successful.</value>
+  </data>
+  <data name="lblCompanyDetails" xml:space="preserve">
+    <value>Company Details</value>
+  </data>
+  <data name="lblCompanyType" xml:space="preserve">
+    <value>Company Type</value>
+  </data>
+  <data name="lblConcession" xml:space="preserve">
+    <value>Concession</value>
+  </data>
+  <data name="lblConctPerson" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="lblConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="lblConseReason" xml:space="preserve">
+    <value>Reason For Concession</value>
+  </data>
+  <data name="lblContactDetails" xml:space="preserve">
+    <value>Contact Details</value>
+  </data>
+  <data name="lblContactInformation" xml:space="preserve">
+    <value>Contact Information</value>
+  </data>
+  <data name="lblCopy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="lblCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="lblCreditlimit" xml:space="preserve">
+    <value>Credit Limit</value>
+  </data>
+  <data name="lblCultureMethode" xml:space="preserve">
+    <value>Culture Method</value>
+  </data>
+  <data name="lblDaily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="lblDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="lblDay" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="lblDayGrad" xml:space="preserve">
+    <value>Day Grad Map</value>
+  </data>
+  <data name="lblDays" xml:space="preserve">
+    <value>Days(s)</value>
+  </data>
+  <data name="lblDepartment" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="lblDesignation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="lblDevStage" xml:space="preserve">
+    <value>Devlopment Stage</value>
+  </data>
+  <data name="lblDiffiLvl" xml:space="preserve">
+    <value>Difficulty Level</value>
+  </data>
+  <data name="lblDiffiType" xml:space="preserve">
+    <value>Difficulty Type</value>
+  </data>
+  <data name="lblDOB" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="lblDocCategory" xml:space="preserve">
+    <value>Doctor Category</value>
+  </data>
+  <data name="lblDoctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="lblDoctorDetails" xml:space="preserve">
+    <value>Doctor Details</value>
+  </data>
+  <data name="lblDoctorInformation" xml:space="preserve">
+    <value>Doctor Information</value>
+  </data>
+  <data name="lblDoctorShare" xml:space="preserve">
+    <value>Doctor Share</value>
+  </data>
+  <data name="lblDocType" xml:space="preserve">
+    <value>Doctor Type</value>
+  </data>
+  <data name="lblDurationMin" xml:space="preserve">
+    <value>Duration(Min)</value>
+  </data>
+  <data name="lblEducation" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="lblEffectiveDate" xml:space="preserve">
+    <value>Effective Date</value>
+  </data>
+  <data name="lblEmailId" xml:space="preserve">
+    <value>Email Id</value>
+  </data>
+  <data name="lblEmbryoDesc" xml:space="preserve">
+    <value>Embryo Decription</value>
+  </data>
+  <data name="lblEmpNo" xml:space="preserve">
+    <value>Employee No.</value>
+  </data>
+  <data name="lblEndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="lblEndometrialFlow" xml:space="preserve">
+    <value>Endometrial Flow</value>
+  </data>
+  <data name="lblEndometriosis" xml:space="preserve">
+    <value>Endometriosis</value>
+  </data>
+  <data name="lblEndometrium" xml:space="preserve">
+    <value>Endometrium</value>
+  </data>
+  <data name="lblEndTime" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="lblEnterAppointmentReason" xml:space="preserve">
+    <value>Please Select Appointment Reason</value>
+  </data>
+  <data name="lblExperience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="lblExpirationInterval" xml:space="preserve">
+    <value>Expiration Interval</value>
+  </data>
+  <data name="lblExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="lblExtDocInfo" xml:space="preserve">
+    <value>External Doctor Information</value>
+  </data>
+  <data name="lblExternalDoctorDetail" xml:space="preserve">
+    <value>External Doctor Detail</value>
+  </data>
+  <data name="lblExternalDoctorInformation" xml:space="preserve">
+    <value>External Doctor</value>
+  </data>
+  <data name="lblEyeColor" xml:space="preserve">
+    <value>Eye Color</value>
+  </data>
+  <data name="lblFillMandatoryFields" xml:space="preserve">
+    <value>Please fill mandatory fields</value>
+  </data>
+  <data name="lblFirst" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="lblFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="lblFromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="lblFromTime" xml:space="preserve">
+    <value>From Time</value>
+  </data>
+  <data name="lblFutureAppointments" xml:space="preserve">
+    <value>Future Appointments</value>
+  </data>
+  <data name="lblGender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="lblGrade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="lblHairColor" xml:space="preserve">
+    <value>Hair Color</value>
+  </data>
+  <data name="lblIdentityProof" xml:space="preserve">
+    <value>Identity Proof</value>
+  </data>
+  <data name="lblIdProffNo" xml:space="preserve">
+    <value>ID Proof No.</value>
+  </data>
+  <data name="lblImageUploadType" xml:space="preserve">
+    <value>Please Choose Image Upload Type</value>
+  </data>
+  <data name="lblImgFromGallery" xml:space="preserve">
+    <value>Please Choose Image From Gallery</value>
+  </data>
+  <data name="lblInhouseDoctor" xml:space="preserve">
+    <value>Inhouse Doctor</value>
+  </data>
+  <data name="lblIsClinical" xml:space="preserve">
+    <value>Is Clinical</value>
+  </data>
+  <data name="lblIVFBuilt" xml:space="preserve">
+    <value>IVF Built</value>
+  </data>
+  <data name="lblIVFCatheterType" xml:space="preserve">
+    <value>IVF Catheter Type</value>
+  </data>
+  <data name="lblIVFETPattern" xml:space="preserve">
+    <value>IVF ET Pattern</value>
+  </data>
+  <data name="lblIVFFertilizationStage" xml:space="preserve">
+    <value>IVF Fertilization Stage</value>
+  </data>
+  <data name="lblIVFGobletColor" xml:space="preserve">
+    <value>IVF Goblet Color</value>
+  </data>
+  <data name="lblIVFGobletSize" xml:space="preserve">
+    <value>IVF Goblet Size</value>
+  </data>
+  <data name="lblIVFIncubator" xml:space="preserve">
+    <value>IVF Incubator</value>
+  </data>
+  <data name="lblIVFMainIndication" xml:space="preserve">
+    <value>IVF Main Indication</value>
+  </data>
+  <data name="lblIVFMethodOfSpermPreparation" xml:space="preserve">
+    <value>IVF Method Of Sperm Preparation</value>
+  </data>
+  <data name="lblIVFMOI" xml:space="preserve">
+    <value>IVF MOI</value>
+  </data>
+  <data name="lblIVFPlannedSpermCollection" xml:space="preserve">
+    <value>IVF Planned Sperm Collection</value>
+  </data>
+  <data name="lblIVFPlannedTreatment" xml:space="preserve">
+    <value>IVF Planned Treatment</value>
+  </data>
+  <data name="lblIVFProtocolType" xml:space="preserve">
+    <value>IVF Protocol Type</value>
+  </data>
+  <data name="lblIVFSourceDenudingNeedle" xml:space="preserve">
+    <value>IVF Source Denuding Needle</value>
+  </data>
+  <data name="lblIVFStraw" xml:space="preserve">
+    <value>IVF Straw</value>
+  </data>
+  <data name="lblIVFTank" xml:space="preserve">
+    <value>IVF Tank</value>
+  </data>
+  <data name="lblLandlineNo" xml:space="preserve">
+    <value>Landline No.</value>
+  </data>
+  <data name="lblLandmark" xml:space="preserve">
+    <value>Landmark</value>
+  </data>
+  <data name="lblLapAssociatedProceduresMaster" xml:space="preserve">
+    <value>Lap Associated Procedures Master</value>
+  </data>
+  <data name="lblLast" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="lblLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="lblLocked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="lblLoginName" xml:space="preserve">
+    <value>Login Name</value>
+  </data>
+  <data name="lblLongDescription" xml:space="preserve">
+    <value>Long Description</value>
+  </data>
+  <data name="lblMailingAddress" xml:space="preserve">
+    <value>Mailing Address</value>
+  </data>
+  <data name="lblMarryStatus" xml:space="preserve">
+    <value>Marital Status</value>
+  </data>
+  <data name="lblMaximum" xml:space="preserve">
+    <value>maximum</value>
+  </data>
+  <data name="lblMaximumPasswordAge" xml:space="preserve">
+    <value>Maximum Password Age</value>
+  </data>
+  <data name="lblMaximumPasswordLength" xml:space="preserve">
+    <value>Maximum Password Length</value>
+  </data>
+  <data name="lblMiddleName" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="lblMin" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="lblMinimum" xml:space="preserve">
+    <value>minimum</value>
+  </data>
+  <data name="lblMinimumPasswordAge" xml:space="preserve">
+    <value>Minimum Password Age</value>
+  </data>
+  <data name="lblMinimumPasswordLength" xml:space="preserve">
+    <value>Minimum Password Length</value>
+  </data>
+  <data name="lblMobNo" xml:space="preserve">
+    <value>Mobile No.</value>
+  </data>
+  <data name="lblMonthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="lblMonths" xml:space="preserve">
+    <value>Month(s)</value>
+  </data>
+  <data name="lblMonths_S" xml:space="preserve">
+    <value>months (s)</value>
+  </data>
+  <data name="lblMRNO" xml:space="preserve">
+    <value>MR NO</value>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="lblNationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="lblNeedleType" xml:space="preserve">
+    <value>Needle Type</value>
+  </data>
+  <data name="lblNewAppointment" xml:space="preserve">
+    <value>New Appointment</value>
+  </data>
+  <data name="lblNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="lblNoofPasswordToRemember" xml:space="preserve">
+    <value>No.of Password To Remember</value>
+  </data>
+  <data name="lblOccupation" xml:space="preserve">
+    <value>Occupation</value>
+  </data>
+  <data name="lblOf" xml:space="preserve">
+    <value>Of</value>
+  </data>
+  <data name="lblOfEvery" xml:space="preserve">
+    <value>of every</value>
+  </data>
+  <data name="lblOfEveryMonths_S" xml:space="preserve">
+    <value>of every months (s)</value>
+  </data>
+  <data name="lblOPDNo" xml:space="preserve">
+    <value>OPD No</value>
+  </data>
+  <data name="lblOR" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="lblOvarianFindings" xml:space="preserve">
+    <value>Ovarian Findings</value>
+  </data>
+  <data name="lblPartnerExists" xml:space="preserve">
+    <value>Partner Already Exists</value>
+  </data>
+  <data name="lblPartnerInformation" xml:space="preserve">
+    <value>Partner Information</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lblPasswordConfiguration" xml:space="preserve">
+    <value>Password Configuration</value>
+  </data>
+  <data name="lblPatientCategory" xml:space="preserve">
+    <value>Patient Category</value>
+  </data>
+  <data name="lblPatientExists" xml:space="preserve">
+    <value>Patient Already Exists</value>
+  </data>
+  <data name="lblPatientInformation" xml:space="preserve">
+    <value>Patient Information</value>
+  </data>
+  <data name="lblPatientName" xml:space="preserve">
+    <value>Patient Name</value>
+  </data>
+  <data name="lblPatientRelation" xml:space="preserve">
+    <value>Patient Relation</value>
+  </data>
+  <data name="lblPatientSearch" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="lblPayerInfo" xml:space="preserve">
+    <value>Payer Information</value>
+  </data>
+  <data name="lblPelvicSites" xml:space="preserve">
+    <value>Pelvic Sites</value>
+  </data>
+  <data name="lblPermanentAddress" xml:space="preserve">
+    <value>Permanent Address</value>
+  </data>
+  <data name="lblPincode" xml:space="preserve">
+    <value>Pincode</value>
+  </data>
+  <data name="lblPostThawingPlan" xml:space="preserve">
+    <value>Post Thawing Plan</value>
+  </data>
+  <data name="lblPreferredLang" xml:space="preserve">
+    <value>Preferred Language</value>
+  </data>
+  <data name="lblPrefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="lblPrevious" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="lblPreviousVisits" xml:space="preserve">
+    <value>Previous Visits</value>
+  </data>
+  <data name="lblPrimarySymptoms" xml:space="preserve">
+    <value>Primary Symptoms</value>
+  </data>
+  <data name="lblPrint" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="lblPwdShouldContain" xml:space="preserve">
+    <value>Your password should contain</value>
+  </data>
+  <data name="lblQualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="lblQueue" xml:space="preserve">
+    <value>Queue</value>
+  </data>
+  <data name="lblRate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="lblRateEditable" xml:space="preserve">
+    <value>Rate Editable</value>
+  </data>
+  <data name="lblRating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="lblReason" xml:space="preserve">
+    <value>Reason For Change</value>
+  </data>
+  <data name="lblReasonForCancellation" xml:space="preserve">
+    <value>Reason for Cancellation</value>
+  </data>
+  <data name="lblRecordsPerPage" xml:space="preserve">
+    <value>Records Per Page</value>
+  </data>
+  <data name="lblRefDoc" xml:space="preserve">
+    <value>Referral Doctor</value>
+  </data>
+  <data name="lblReferralInformation" xml:space="preserve">
+    <value>Referral Information</value>
+  </data>
+  <data name="lblReferralRemark" xml:space="preserve">
+    <value>Referral Remark</value>
+  </data>
+  <data name="lblRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="lblRegisteredAt" xml:space="preserve">
+    <value>Registered At</value>
+  </data>
+  <data name="lblRegisterExternalDoctor" xml:space="preserve">
+    <value>Register External Doctor</value>
+  </data>
+  <data name="lblRegistrationDate" xml:space="preserve">
+    <value>Registration Date</value>
+  </data>
+  <data name="lblRegistrationNo" xml:space="preserve">
+    <value>Registration No</value>
+  </data>
+  <data name="lblRegistrationType" xml:space="preserve">
+    <value>Registration Type</value>
+  </data>
+  <data name="lblReligion" xml:space="preserve">
+    <value>Religion</value>
+  </data>
+  <data name="lblRemark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="lblResetPwd" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="lblRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="lblSchedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="lblScheduleActiveDeactiveMessage" xml:space="preserve">
+    <value>Schedule activate/deactivate successfully.</value>
+  </data>
+  <data name="lblScheduleType" xml:space="preserve">
+    <value>Schedule Type</value>
+  </data>
+  <data name="lblSearchAppointment" xml:space="preserve">
+    <value>Search Appointment</value>
+  </data>
+  <data name="lblSearchPatient" xml:space="preserve">
+    <value>Search Patient</value>
+  </data>
+  <data name="lblSelCityAndClinic" xml:space="preserve">
+    <value>Select Clinic Location And City</value>
+  </data>
+  <data name="lblSelect" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="lblSelfInformation" xml:space="preserve">
+    <value>Self Information</value>
+  </data>
+  <data name="lblSemenAnalysisInterpretation" xml:space="preserve">
+    <value>Semen Analysis Interpretation</value>
+  </data>
+  <data name="lblSemenColor" xml:space="preserve">
+    <value>Semen Color</value>
+  </data>
+  <data name="lblSeniorCitizenDiscount" xml:space="preserve">
+    <value>Senior Citizen Discount</value>
+  </data>
+  <data name="lblService" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="lblServiceActiveDeactiveMessage" xml:space="preserve">
+    <value>Service activate/deactivate successful.</value>
+  </data>
+  <data name="lblServiceName" xml:space="preserve">
+    <value>Service Name</value>
+  </data>
+  <data name="lblServiceNo" xml:space="preserve">
+    <value>Service No.</value>
+  </data>
+  <data name="lblSkinColor" xml:space="preserve">
+    <value>Skin Color</value>
+  </data>
+  <data name="lblSourceNeedle" xml:space="preserve">
+    <value>Source Needle</value>
+  </data>
+  <data name="lblSourceofReference" xml:space="preserve">
+    <value>Source of Reference</value>
+  </data>
+  <data name="lblSourceSemen" xml:space="preserve">
+    <value>Source Semen</value>
+  </data>
+  <data name="lblSpecialization" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="lblSpecialRegistration" xml:space="preserve">
+    <value>Special Registration</value>
+  </data>
+  <data name="lblSpouseName" xml:space="preserve">
+    <value>Partner Name</value>
+  </data>
+  <data name="lblStaff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="lblStaffActDeact" xml:space="preserve">
+    <value>Staff activate/deactivate successfully.</value>
+  </data>
+  <data name="lblStaffDetail" xml:space="preserve">
+    <value>Staff details</value>
+  </data>
+  <data name="lblStaffDiscount" xml:space="preserve">
+    <value>Staff Discount</value>
+  </data>
+  <data name="lblStaffInfo" xml:space="preserve">
+    <value>Staff Information</value>
+  </data>
+  <data name="lblStaffRelation" xml:space="preserve">
+    <value>Staff Relation</value>
+  </data>
+  <data name="lblStaffSearch" xml:space="preserve">
+    <value>Staff Search</value>
+  </data>
+  <data name="lblStartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="lblStartTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="lblState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="lblStreet" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="lblSubSpecialization" xml:space="preserve">
+    <value>Sub Specialization</value>
+  </data>
+  <data name="lblTariff" xml:space="preserve">
+    <value>Tariff</value>
+  </data>
+  <data name="lblThe" xml:space="preserve">
+    <value>The</value>
+  </data>
+  <data name="lblTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="lblTo" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="lblToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="lblTokenNo" xml:space="preserve">
+    <value>Token No</value>
+  </data>
+  <data name="lblTotalBalance" xml:space="preserve">
+    <value>Total Balance</value>
+  </data>
+  <data name="lblTreatmentRequired" xml:space="preserve">
+    <value>Treatment Required</value>
+  </data>
+  <data name="lblTrophoectodermDecription" xml:space="preserve">
+    <value>Trophoectoderm Description</value>
+  </data>
+  <data name="lblUploadImage" xml:space="preserve">
+    <value>Upload Image</value>
+  </data>
+  <data name="lblUploadPhoto" xml:space="preserve">
+    <value>Upload Photo</value>
+  </data>
+  <data name="lblUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="lblUserDetail" xml:space="preserve">
+    <value>User Details</value>
+  </data>
+  <data name="lblUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="lblUserRole" xml:space="preserve">
+    <value>User Role</value>
+  </data>
+  <data name="lblUserRoleDetails" xml:space="preserve">
+    <value>User Role Details</value>
+  </data>
+  <data name="lblUserType" xml:space="preserve">
+    <value>User Type</value>
+  </data>
+  <data name="lblUsrActDeact" xml:space="preserve">
+    <value>User activate/deactivate successfully.</value>
+  </data>
+  <data name="lblUterinFindings" xml:space="preserve">
+    <value>Uterin Findings</value>
+  </data>
+  <data name="lblUterusMobility" xml:space="preserve">
+    <value>Uterus Mobility</value>
+  </data>
+  <data name="lblUterusPosition" xml:space="preserve">
+    <value>Uterus Position</value>
+  </data>
+  <data name="lblUterusShape" xml:space="preserve">
+    <value>Uterus Shape</value>
+  </data>
+  <data name="lblValidEmail" xml:space="preserve">
+    <value>Please enter valid email id</value>
+  </data>
+  <data name="lblValidMobNo" xml:space="preserve">
+    <value>Please enter valid mobile no</value>
+  </data>
+  <data name="lblView" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="lblViewIdProof" xml:space="preserve">
+    <value>View Id Proof</value>
+  </data>
+  <data name="lblViewRoleMenu" xml:space="preserve">
+    <value>View Role Menu</value>
+  </data>
+  <data name="lblVisitFrom" xml:space="preserve">
+    <value>Visit From</value>
+  </data>
+  <data name="lblVisitInformation" xml:space="preserve">
+    <value>Visit Information</value>
+  </data>
+  <data name="lblVisitMarkedby" xml:space="preserve">
+    <value>Visit Marked By</value>
+  </data>
+  <data name="lblVisitStatus" xml:space="preserve">
+    <value>Visit Status</value>
+  </data>
+  <data name="lblVisitTime" xml:space="preserve">
+    <value>Visit Time</value>
+  </data>
+  <data name="lblVisitTo" xml:space="preserve">
+    <value>Visit To</value>
+  </data>
+  <data name="lblVisitType" xml:space="preserve">
+    <value>Visit Type</value>
+  </data>
+  <data name="lblVisitTypeServiceLinkMaster" xml:space="preserve">
+    <value>Visit Type Service Link Master</value>
+  </data>
+  <data name="lblWebCamNotStarted" xml:space="preserve">
+    <value>Webcam could not be started. Did you give access to it?</value>
+  </data>
+  <data name="lblWeekly" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="lblYears" xml:space="preserve">
+    <value>Year(s)</value>
+  </data>
+  <data name="lbToTime" xml:space="preserve">
+    <value>To Time</value>
+  </data>
+  <data name="msg5RowOnly" xml:space="preserve">
+    <value>You can add maximum 5 rows at a time.</value>
+  </data>
+  <data name="msgAddRow_Cancel" xml:space="preserve">
+    <value>Are you sure you want to Cancel? </value>
+  </data>
+  <data name="msgAlreadyBookedAppointment" xml:space="preserve">
+    <value>Sorry , The Appointment For Given Time Period Is Already Booked Or Currently Unavailable</value>
+  </data>
+  <data name="msgAnnivarsaryValidation" xml:space="preserve">
+    <value>Min 18 years diff.  required between DOB and Anniversary</value>
+  </data>
+  <data name="msgAtleastoneDigit" xml:space="preserve">
+    <value>atleast 1 digit</value>
+  </data>
+  <data name="msgCnfSave" xml:space="preserve">
+    <value>Do you want to save changes ?</value>
+  </data>
+  <data name="msgCnfUpdate" xml:space="preserve">
+    <value>Do you want to update changes ?</value>
+  </data>
+  <data name="msgCodeDescReq" xml:space="preserve">
+    <value>Code/Description is required.</value>
+  </data>
+  <data name="msgDeleteMessageAck" xml:space="preserve">
+    <value>Please Enter Reason For Appointment Cancellation</value>
+  </data>
+  <data name="msgDeleteSuccess" xml:space="preserve">
+    <value>Appointment Deleted Successfully</value>
+  </data>
+  <data name="msgDoctorExistsInExternalList" xml:space="preserve">
+    <value>Doctor is already exists in external list</value>
+  </data>
+  <data name="msgDoctorExistsInInternalList" xml:space="preserve">
+    <value>Doctor is already exists in inhouse list</value>
+  </data>
+  <data name="msgDoctorNotAvailable" xml:space="preserve">
+    <value>Is Not Available On Selected Date , Please Select Some Other Date</value>
+  </data>
+  <data name="msgDoYouWantToContinueValidation" xml:space="preserve">
+    <value>Do You want to leave the transaction without saving ?</value>
+  </data>
+  <data name="msgDuplicate" xml:space="preserve">
+    <value>Record is already present with provided details.</value>
+  </data>
+  <data name="msgDuplication_Code" xml:space="preserve">
+    <value>Code/Description already exists! Please enter a unique code.</value>
+  </data>
+  <data name="msgDuplication_Description" xml:space="preserve">
+    <value>Code/Description already exists! Please enter a unique description.</value>
+  </data>
+  <data name="msgEnterAge" xml:space="preserve">
+    <value>Enter age</value>
+  </data>
+  <data name="msgEnterPwd" xml:space="preserve">
+    <value>Enter Password</value>
+  </data>
+  <data name="msgEntFirstName" xml:space="preserve">
+    <value>Enter First Name</value>
+  </data>
+  <data name="msgEntLastName" xml:space="preserve">
+    <value>Enter Last Name</value>
+  </data>
+  <data name="msgEntMobNo" xml:space="preserve">
+    <value>Enter Mobile No</value>
+  </data>
+  <data name="msgEntValidEmail" xml:space="preserve">
+    <value>Enter Valid Email Id</value>
+  </data>
+  <data name="msgError" xml:space="preserve">
+    <value>Something went wrong!</value>
+  </data>
+  <data name="msgErrorProgNonProgTitle" xml:space="preserve">
+    <value>Sum of Progressive, Non Progressive &amp; Immotility can not be more than 100.</value>
+  </data>
+  <data name="msgErrorRapidSlowProgressTitle" xml:space="preserve">
+    <value>Sum of Slow &amp; Rapid Progressive can not be more than Progressive motility.</value>
+  </data>
+  <data name="msgError_Common" xml:space="preserve">
+    <value>Something went wrong! Please contact your administrator.</value>
+  </data>
+  <data name="msgGridUnsaveData" xml:space="preserve">
+    <value>You have unsaved data,save data first.</value>
+  </data>
+  <data name="msgInfo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="msgInsertAppointmentSuccess" xml:space="preserve">
+    <value>Successfully Added Appointment</value>
+  </data>
+  <data name="msgInvalidText" xml:space="preserve">
+    <value>Invalid text</value>
+  </data>
+  <data name="msgloginExist" xml:space="preserve">
+    <value>Login Name is exists.</value>
+  </data>
+  <data name="msgMaxLimit10" xml:space="preserve">
+    <value>Maximum Limit is 10</value>
+  </data>
+  <data name="msgMaxLimit50" xml:space="preserve">
+    <value>Maximum Limit is 50</value>
+  </data>
+  <data name="msgMaxPwdAgegrtrThanMinAge" xml:space="preserve">
+    <value>Maximum password age should greater than minimum password age.</value>
+  </data>
+  <data name="msgMaxPwdGrtrThanMinPwd" xml:space="preserve">
+    <value>Maximum password length should greater than minimum password length.</value>
+  </data>
+  <data name="msgMaxPwdLen" xml:space="preserve">
+    <value>Minimum password length should less than maximum password length.</value>
+  </data>
+  <data name="msgMaxPwdLeneql20" xml:space="preserve">
+    <value>Maximum password length should less than or equal to 20.</value>
+  </data>
+  <data name="msgMinPwdAgelessThanMaxAge" xml:space="preserve">
+    <value>Minimum password age should less than maximum password age.</value>
+  </data>
+  <data name="msgMinPwdAgenotZero" xml:space="preserve">
+    <value>Minimum password age should be greater than 0.</value>
+  </data>
+  <data name="msgMinPwdLen" xml:space="preserve">
+    <value>Minimum password length should be greater than 0.</value>
+  </data>
+  <data name="msgOneLowerCase" xml:space="preserve">
+    <value>atleast 1 lower case char</value>
+  </data>
+  <data name="msgoneSpclChar" xml:space="preserve">
+    <value>and atleast 1 special charecter.</value>
+  </data>
+  <data name="msgOneUpperCase" xml:space="preserve">
+    <value>atleast 1 upper case char</value>
+  </data>
+  <data name="msgPasswordreset" xml:space="preserve">
+    <value>Password reset successfully.</value>
+  </data>
+  <data name="msgpwdandcnfpwdmatch" xml:space="preserve">
+    <value>Password and confirm password sdould be match.</value>
+  </data>
+  <data name="msgRemoveRow" xml:space="preserve">
+    <value>You cannot remove this row.</value>
+  </data>
+  <data name="msgRescheduleMsgAck" xml:space="preserve">
+    <value>Please Select Appointment Date</value>
+  </data>
+  <data name="msgRescheduleSuccess" xml:space="preserve">
+    <value>Appointment Rescheduled Successfully</value>
+  </data>
+  <data name="msgSave" xml:space="preserve">
+    <value>Record saved successfully!</value>
+  </data>
+  <data name="msgSave_Error" xml:space="preserve">
+    <value>Record could not be saved. Please try again.</value>
+  </data>
+  <data name="msgSelArtDay" xml:space="preserve">
+    <value>Select ART Day</value>
+  </data>
+  <data name="msgSelCountryCode" xml:space="preserve">
+    <value>Select Country Code</value>
+  </data>
+  <data name="msgSelDept" xml:space="preserve">
+    <value>Select Department</value>
+  </data>
+  <data name="msgSelDesignation" xml:space="preserve">
+    <value>Select designation</value>
+  </data>
+  <data name="msgSelectedAppointmentTime" xml:space="preserve">
+    <value>You Have Selected Appointment Time :</value>
+  </data>
+  <data name="msgSelectRating" xml:space="preserve">
+    <value>Select Rating</value>
+  </data>
+  <data name="msgSelectrole" xml:space="preserve">
+    <value>Select atleast one role.</value>
+  </data>
+  <data name="msgSelectTimeSlot" xml:space="preserve">
+    <value>Please Select Date / Time-Slot For Appointment</value>
+  </data>
+  <data name="msgSelGender" xml:space="preserve">
+    <value>Select gender</value>
+  </data>
+  <data name="msgSelGrade" xml:space="preserve">
+    <value>Select Grade</value>
+  </data>
+  <data name="msgSelSpecialization" xml:space="preserve">
+    <value>Select Specialization</value>
+  </data>
+  <data name="msgSelValidDateDOB" xml:space="preserve">
+    <value>Please select valid DOB</value>
+  </data>
+  <data name="msgSelVisFrmDtAndVisToDt" xml:space="preserve">
+    <value>Select visit from date and visit to date</value>
+  </data>
+  <data name="msgSuccess_Save" xml:space="preserve">
+    <value>Record Saved Successfully</value>
+  </data>
+  <data name="msgTitle" xml:space="preserve">
+    <value>Palash IVF</value>
+  </data>
+  <data name="MsgTitleSelectDay" xml:space="preserve">
+    <value>Please select atleast one Day</value>
+  </data>
+  <data name="msgUpdate" xml:space="preserve">
+    <value>Record updated successfully!</value>
+  </data>
+  <data name="msgUpdateAppointmentSuccess" xml:space="preserve">
+    <value>Successfully Updated Appointment</value>
+  </data>
+  <data name="msgUpdateCancelledAppointment" xml:space="preserve">
+    <value>This Appointment Is Already Cancelled, Hence You Cannot Update Cancelled Appointment</value>
+  </data>
+  <data name="msgUpdate_Error" xml:space="preserve">
+    <value>Records could not be updated. Please try again.</value>
+  </data>
+  <data name="msgusrLockUnlock" xml:space="preserve">
+    <value>User Lock/Unlock successfully.</value>
+  </data>
+  <data name="msgVisAlrdyClosed" xml:space="preserve">
+    <value>Visit is already closed.</value>
+  </data>
+  <data name="msgVisClosed" xml:space="preserve">
+    <value>Visit closed successfully.</value>
+  </data>
+  <data name="msgVisFrmDtGrtrThnVisToDt" xml:space="preserve">
+    <value>Visit form date should be less than visit to date.</value>
+  </data>
+  <data name="msgWait" xml:space="preserve">
+    <value>Please wait while processing</value>
+  </data>
+  <data name="msgWarning" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OnlyNumericValues" xml:space="preserve">
+    <value>Enter numeric only</value>
+  </data>
+  <data name="sss" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Letzte</value>
+  </data>
+  <data name="strReasonForAdvPymt" xml:space="preserve">
+    <value>Reason of Advance Payment</value>
+  </data>
+  <data name="TariffCode" xml:space="preserve">
+    <value>Tariff Code</value>
+  </data>
+  <data name="TariffName" xml:space="preserve">
+    <value>Tariff Name</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Total_Count" xml:space="preserve">
+    <value>Total Count</value>
+  </data>
+</root>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Audit.NET.SqlServer</name>
+    </assembly>
+    <members>
+        <member name="T:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator">
+            <summary>
+            Provides a configuration for the Sql Server DB data provider
+            </summary>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.ConnectionString(System.String)">
+            <summary>
+            Specifies the Sql Server connection string.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.TableName(System.String)">
+            <summary>
+            Specifies the Sql Server Table Name.
+            </summary>
+            <param name="tableName">The table name.</param>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.IdColumnName(System.String)">
+            <summary>
+            Specifies the column that is the Primary Key (or unique key)
+            </summary>
+            <param name="idColumnName">The id column name.</param>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.JsonColumnName(System.String)">
+            <summary>
+            Specifies the column where to store the event json data
+            </summary>
+            <param name="jsonColumnName">The json data column name.</param>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.LastUpdatedColumnName(System.String)">
+            <summary>
+            Specifies the column where to store the last updated date.
+            </summary>
+            <param name="lastUpdatedColumnName">The last udpated date column name, or NULL to ignore.</param>
+        </member>
+        <member name="M:Audit.SqlServer.Configuration.ISqlServerProviderConfigurator.Schema(System.String)">
+            <summary>
+            Specifies the SQL schema where to store the events
+            </summary>
+            <param name="schema">The Schema name.</param>
+        </member>
+        <member name="T:Audit.SqlServer.Providers.SqlDataProvider">
+            <summary>
+            SQL Server data access
+            </summary>
+            <remarks>
+            Settings:
+            - ConnectionString: SQL connection string
+            - TableName: Table name
+            - JsonColumnName: Column name where the JSON will be stored
+            - IdColumnName: Column name with the primary key
+            - LastUpdatedDateColumnName: datetime column to update when replacing events (NULL to ignore)
+            </remarks>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.ConnectionString">
+            <summary>
+            The SQL connection string
+            </summary>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.TableName">
+            <summary>
+            The SQL events Table Name
+            </summary>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.JsonColumnName">
+            <summary>
+            The Column Name that stores the JSON
+            </summary>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.LastUpdatedDateColumnName">
+            <summary>
+            The Column Name that stores the Last Updated Date (NULL to ignore)
+            </summary>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.IdColumnName">
+            <summary>
+            The Column Name that is the primary ley
+            </summary>
+        </member>
+        <member name="P:Audit.SqlServer.Providers.SqlDataProvider.Schema">
+            <summary>
+            The Schema Name to use (NULL to ignore)
+            </summary>
+        </member>
+        <member name="M:Audit.Core.SqlServerConfiguratorExtensions.UseSqlServer(Audit.Core.ConfigurationApi.IConfigurator,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Store the events in a Sql Server database.
+            </summary>
+            <param name="connectionString">The Sql Server connection string.</param>
+            <param name="tableName">The Sql table name to store the events.</param>
+            <param name="idColumnName">The primary key column name.</param>
+            <param name="jsonColumnName">The column name where to store the json data.</param>
+            <param name="lastUpdatedDateColumnName">The column name where to store the last updated date.</param>
+            <param name="lastUpdatedDateColumnName">The column name where to store the last updated date.</param>
+            <param name="schema">The schema name to use when storing the events.</param>
+        </member>
+        <member name="M:Audit.Core.SqlServerConfiguratorExtensions.UseSqlServer(Audit.Core.ConfigurationApi.IConfigurator,System.Action{Audit.SqlServer.Configuration.ISqlServerProviderConfigurator})">
+            <summary>
+            Store the events in a Sql Server database.
+            </summary>
+            <param name="config">The Sql Serevr provider configuration.</param>
+        </member>
+    </members>
+</doc>

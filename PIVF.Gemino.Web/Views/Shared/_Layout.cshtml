@@ -1,0 +1,1569 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="PIVF" ng-controller="LayOutController">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="PIVF">
+    <link rel="icon" href="~/images/favicon.ico">
+    <title>ART Dashboard</title>
+    <link href="~/Content/strap.min.css" rel="stylesheet" />
+    <link href="~/Content/ie10-viewport-bug-workaround.css" rel="stylesheet" />  
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/dev_old.css" rel="stylesheet" />  
+    <link href="~/Content/dev.css" rel="stylesheet">
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/angular-toasty.min.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <link href="~/Content/ng-img-crop.css" rel="stylesheet" />
+    <link href="~/Content/ui-cropper.css" rel="stylesheet" />
+    <link href="~/Content/angular-ui-tree.min.css" rel="stylesheet" />
+    <link href="~/Content/angular-ui-tree-theme.css" rel="stylesheet" />
+    <link href="~/Content/select.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="~/Content/angular-wizard.css" rel="stylesheet" />
+    <link href="~/Content/select.css" rel="stylesheet" />
+
+    <script src="~/Scripts/AngularPackages/pdfmake.js"></script>
+    <script src="~/Scripts/AngularPackages/vfs_fonts.js"></script>
+    <link href="~/Scripts/AngularPackages/slick/slick-carousel/slick-theme.css" rel="stylesheet" />
+    <link href="~/Scripts/AngularPackages/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" rel="stylesheet" />
+    <link href="~/Scripts/AngularPackages/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css" rel="stylesheet" />
+
+    <link href="~/Content/ngDialog.css" rel="stylesheet" />
+    <link href="~/Content/ngDialog-Plain.css" rel="stylesheet" />
+    <link href="~/Content/ngDialog-theme-default.min.css" rel="stylesheet" />
+    <link href="~/Content/perfect-scrollbar.min.css" rel="stylesheet" />
+    <link href="~/Content/isteven-multi-select.css" rel="stylesheet" />
+    <link href="~/Content/ngPrint.min.css" rel="stylesheet" />
+</head>  
+<body ng-class="{'page_queue':hideWhenQueue}" ng-init="BindGrandParentList();GetUserRights()" ng-mouseup="UpdateTicket();" ng-cloak>
+    <!-- wrapper -->
+    <main id="wrapper">
+        <header>
+            <!-- nav -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid" ng-cloak>
+                    <div class="row" ng-click="closeAsideMenu()">
+                        <div class="col-md-10 col-lg-10 p-r-0">
+                            <section class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <!-- logo -->
+                                <a class="navbar-brand logo" href="#"><img src="~/images/Gemino_logo.png" alt="Palash IVF :: Empowering Fertility"></a>
+                                <!-- /logo -->
+                            </section>
+                            <!-- top nav -->
+                            <section id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="navCycles" id="liQueue" ng-click="aciveTab('liQueue')" ng-if="IsQueue" ng-hide="isHOUser">
+                                        <a href="#Queue">Queue</a>
+                                    </li>
+                                    <li class="dropdown" ng-if="IsMPatient" id="liMPatient" ng-click="aciveTab('liMPatient')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Patient</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <!--PatientRegistrationList-->
+                                                <li><a style="display:block" href="#PatientList" ng-click="CheckSinglePatient(false)">Patient Search</a></li>
+                                                <li><a style="display:block" href="#Registration" ng-click="CheckSinglePatient(false)">Patient Registration</a></li>
+                                                <li><a style="display:block" ng-href="#PatientVisit" ng-click="CheckSinglePatient(false)">Patient Check-in</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown" ng-if="IsAppointment" id="liAppointment" ng-click="aciveTab('liAppointment')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Appointment</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a style="display:block" href="#Appointment">Calendar</a></li>
+                                                <li><a style="display:block" href="#AppointmentList">Appointment List</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown" ng-if="IsBilling" id="liBilling" ng-click="aciveTab('liBilling')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a style="display:block" href="#BillList" ng-click="CheckSinglePatient(false)">Bill List</a></li>
+                                                <li><a style="display:block" ng-href="#BillLanding" ng-click="CheckSinglePatient(false)">Patient Bill</a></li>
+                                                <li><a style="display:block" ng-href="#PatientAdvance" ng-click="CheckSinglePatient(false)">Patient Advance</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="navPatient dropdown" ng-if="IsPatient" id="liPatient" ng-click="aciveTab('liPatient')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EMR</a>
+                                        <div class="dropdown-menu">
+                                            <div class="row">
+
+                                                <div class="col-sm-12 col-md-12 col-lg-12 p-t-7">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="searchPatient" ng-model="PatientCategory" ng-change="getpatientlist(7)" id="" value="7"> Couple
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="searchPatient" ng-model="PatientCategory" ng-change="getpatientlist(11)" id="" value="11"> Individual
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-12 col-lg-12 p-t-7">
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="searchPatient" ng-model="PatientCategory" ng-change="getpatientlist(8)" id="" value="8"> Donor
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="searchPatient" ng-model="PatientCategory" ng-change="getpatientlist(10)" id="" value="10"> Surrogate
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="col-sm-12 col-md-12 col-lg-12 p-t-7">
+                                                        <div class="form-group" id="search_patient">
+                                                            <input type="text" class="form-control" id="txtfullName" placeholder="Search Patient" name="txtUsrName" ng-model="model" uib-typeahead="i as (i.PatientName) for i in getMatchingPatient($viewValue) | limitTo : 8" typeahead-on-select="onSelect(model)" typeahead-input-formatter="a" autofocus>   @*| filter:{PatientName:$viewValue } | limitTo:8*@
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                    </li>
+                                    <li class="dropdown" ng-if="IsCryoBank" id="liCryobank" ng-click="aciveTab('liCryobank')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cryobank</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a style="display:block" href="#EmbryoBank" ng-click="CheckSinglePatient(false)">Embryo Bank</a></li>
+                                                <li><a style="display:block" href="#OocyteBank" ng-click="CheckSinglePatient(false)">Oocyte Bank</a></li>
+                                                <li><a style="display:block" ng-href="#SpermBank" ng-click="CheckSinglePatient(false)">Sperm Bank</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="navCycles" ng-if="IsCycle" id="liCycles" ng-click="aciveTab('liCycles')" ng-hide="isHOUser">
+                                        <a href="">Cycles</a>
+                                        <div class="subNav">
+                                            <ul>
+                                                <!--PatientRegistrationList-->
+                                                <li><a style="display:block" href="#PatientList" ng-click="CheckSinglePatient(false)">Patient Search</a></li>
+                                                <li><a style="display:block" href="#Registration" ng-click="CheckSinglePatient(false)">Patient Registration</a></li>
+                                                <li><a style="display:block" ng-href="#PatientVisit" ng-click="CheckSinglePatient(false)">Patient Check-in</a></li>
+                                                <li><a href="#ARTCycle">Search Cycles</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    @*<li class="dropdown" ng-if="IsBilling" id="liBilling" ng-click="aciveTab('liBilling')" ng-hide="isHOUser">
+                                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Billing</a>
+                                            <div class="dropdown-menu">
+                                                <ul>
+                                                    <li><a style="display:block" href="" ng-click="CheckSinglePatient(false)">Bill Dashboard</a></li>
+                                                    <li><a style="display:block" href="#BillList" ng-click="CheckSinglePatient(false)">Bill List</a></li>
+                                                    <li><a style="display:block" ng-href="#BillLanding" ng-click="CheckSinglePatient(false)">Patient Bill</a></li>
+                                                    <li><a style="display:block" ng-href="#PatientAdvance" ng-click="CheckSinglePatient(false)">Patient Advance</a></li>
+                                                    <li><a style="display:block" ng-href="" ng-click="CheckSinglePatient(false)">Pharmacy Bill List</a></li>
+                                                    <li><a style="display:block" ng-href="" ng-click="CheckSinglePatient(false)">Phyarmacy Bill</a></li>
+                                                    <li><a style="display:block" ng-href="" ng-click="CheckSinglePatient(false)">Change Payment Mode</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </li>*@
+
+
+
+                                    <li class="navCycles" ng-if="IsDonor" id="liDonor" ng-click="aciveTab('liDonor')" ng-hide="isHOUser">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Donor/Surrogate</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a style="display:block" href="#Donor">Donor</a></li>
+                                                <li><a style="display:block" href="#SurrogateScreen">Surogate Screening</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="dropdown" id="liConfiguration" ng-click="aciveTab('liConfiguration')">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-click="BindParentList(ConfigID)">Configuration</a>
+                                        <div class="dropdown-menu">
+                                            <ul ng-repeat="item in FirstLvlParentList" ng-mouseover="path = item.Title" ng-mouseleave="path = ''">
+                                                <li>
+                                                    <a style="display:block" href="{{'#/'+item.Path}}">
+                                                        {{item.Title}}
+                                                        <ul class="sub-menu list_submenu" ng-show="path=='Billing'">
+                                                            <li><a style="display:block" href="#CompanyList">Company</a></li>
+                                                            <li><a style="display:block" href="#AsscomList"> Associate Company</a></li>
+                                                            <li><a style="display:block" ng-href="#ClassMaster">  Class </a></li>
+                                                            <li><a style="display:block" href="#Tariff">Tariff</a></li>
+                                                            <li><a style="display:block" ng-href="#ServiceMaster">  Service </a></li>
+                                                            <li><a style="display:block" ng-href="#TariffService">  Tariff Service  </a></li>
+                                                            <li><a style="display:block" ng-href="#AdvanceAgainst">Reason For Advance Payment</a></li>
+                                                            <li><a style="display:block" ng-href="#ConsessionReason">Reason Concession</a></li>
+                                                        </ul>
+
+                                                        <ul class="sub-menu list_submenu" ng-show="path=='Clinic'">
+                                                            <li><a style="display:block" href="#Bank">Bank</a></li>
+                                                            <li><a style="display:block" href="#Cabin">Cabin</a></li>
+                                                            @*<li><a style="display:block" href="#Nationality"> Country  </a></li>*@
+                                                            <li><a style="display:block" href="#State">State</a></li>
+                                                            <li><a style="display:block" href="#City">City</a></li>
+                                                            <li><a style="display:block" href="#Staff">Staff</a></li>
+                                                            <li><a style="display:block" href="#Doctor">Doctor</a></li>
+                                                            <li><a style="display:block" href="#Dept">Department</a></li>
+                                                            <li><a style="display:block" href="#Designation">Designation</a></li>
+                                                            @*<li><a style="display:block" href="#Classification">Classification</a></li>*@
+                                                            <li><a style="display:block" href="#specialization">Specialization</a></li>
+                                                            <li><a style="display:block" href="#SubSpecialization">Sub Specialization</a></li>
+                                                            <li><a style="display:block" href="#DSchedule">Doctor Schedule</a></li>
+                                                        </ul>
+
+                                                        <ul class="sub-menu list_submenu" ng-show="path=='Patient '">
+                                                            <li><a style="display:block" href="#ReferralName">Source of Reference</a></li>
+                                                            <li><a style="display:block" href="#VisitType">Visit Type</a></li>
+                                                            <li><a style="display:block" href="#CategoryL1Master  ">Patient Source  </a></li>
+                                                            <li><a style="display:block" href="#CategoryL2Master"> Patient Category  </a></li>
+                                                            <li><a style="display:block" href="#Education">Education</a></li>
+                                                            <li><a style="display:block" href="#camp"> Camp  </a></li>
+                                                            <li><a style="display:block" href="#Agent  ">Agent  </a></li>
+                                                            <li><a style="display:block" href="#ConsentMaster  ">Consent  </a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KPI</a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+
+                                                <li>
+                                                    <a style="display:block" href="#">
+                                                        Fertilization Outcome
+                                                        <ul class="sub-menu list_submenu">
+                                                            <li><a href="#"> IVF Fertilization </a></li>
+                                                            <li><a href="#"> ICSI Fertilization </a></li>
+                                                            <li><a href="#"> Degeneration </a></li>
+                                                        </ul>
+                                                    </a>
+                                                </li>
+
+                                                <li><a style="display:block" href="#">Patient Dynamics</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <!-- /top nav -->
+                        </div>
+                        <div class="col-md-2 col-lg-2">
+                            <!-- user info -->
+                            <section id="userInfo">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <!-- add by suresh 21042017-->
+                                        <a class="dropdown-toggle user glyphicon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <div class="userName">{{authentication.FullName}}, <span class="txtAuthCl">{{authentication.Clinic}}</span></div>
+                                            @*<span class="glyphicon glyphicon-user"></span>*@
+                                            @*<i class="fa fa-caret-down"></i>*@
+                                        </a>
+                                        <!-- /add by suresh 21042017-->
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" class="profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+                                            @*<li><a href="#" class="messages"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Message</a></li>
+                                                <li><a href="#" class="settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Setting</a></li>*@
+                                            <li><a href="#" ng-click="logOut()" class="logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </section>
+                            <!-- /user info -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- /nav -->
+
+        </header>
+        <section class="container-fluid" ng-cloak>
+            <div class="row">
+                <!-- sidebar -->
+                <aside id="sidebar" class="sidebar" ng-hide="hideWhenQueue">
+                    <ul class="nav nav-sidebar">
+                        <!-- add later -->
+                        @* <div class="ProfileImageDiv"> <img ng-src="{{CoupleDetails.FemalePhotoStr}}" width="100%" /></div>*@
+                        @*<div class="ProfileImageDiv"><img ng-src="{{CoupleDetails.FemalePhotoStr}}" width="100%" /></div>*@
+                        <li ng-class="{'active':IsFemaleActive}" ng-click="ClosePopUp(2)">
+                            <a href="" id="menuField_women" ng-show="IsFemale">
+                                <span class="icoNav">
+                                    <img ng-if="CoupleDetails.FemalePatient.FemalePhotoStr !=null && CoupleDetails.FemalePatient.FemalePhotoStr !=''" ng-src="{{CoupleDetails.FemalePatient.FemalePhotoStr}}" width="100%" alt="">
+                                    <img ng-if="CoupleDetails.FemalePatient.FemalePhotoStr ==null || CoupleDetails.FemalePatient.FemalePhotoStr ==''" ng-src="../images/Female_default.jpg" width="100%">
+                                </span>
+                                <span class="patient-name Capitalize">{{CoupleDetails.FemalePatient.FemalePatientName}}</span>
+                                <span>{{CoupleDetails.FemalePatient.FemaleAgeInYr}}  years</span>
+                                <small>{{CoupleDetails.FemalePatient.FemalePatientMRNO}}</small>
+                            </a>
+                        </li>
+                        <li ng-class="{'active':IsMaleActive}" ng-click="ClosePopUp(1)">
+                            <a href="" id="menuField_men" ng-show="IsMale">
+                                <span class="icoNav">
+                                    <img ng-if="CoupleDetails.MalePatient.MalePhotoStr !=null && CoupleDetails.MalePatient.MalePhotoStr !=''" ng-src="{{CoupleDetails.MalePatient.MalePhotoStr}}" width="100%" alt="">
+                                    <img ng-if="CoupleDetails.MalePatient.MalePhotoStr ==null || CoupleDetails.MalePatient.MalePhotoStr ==''" ng-src="../images/Male_default.jpg" width="100%">
+                                </span>
+                                <span class="patient-name Capitalize">{{CoupleDetails.MalePatient.MalePatientName}}</span>
+                                <span>{{CoupleDetails.MalePatient.MaleAgeInYr }}  years</span>
+                                <small>{{CoupleDetails.MalePatient.MaleMRNO}}</small>
+                            </a>
+                        </li>
+                        <li ng-class="{'active':IsCycleActive}" ng-click="ClosePopUp(3)"><a href="#ARTCycle" id="menuField_ARTCycle" ng-show="IsFemale"><span class="icoNav cycle">@*<img ng-src="{{CoupleDetails.MalePatient.MalePhotoStr}}" width="100%" alt="">*@@*<img ng-src="{{CoupleDetails.MalePatient.MalePhotoStr}}" width="100%" alt="">*@</span> <span class="patient-name">Cycle</span><br />Couple ID: {{CoupleDetails.CoupleRegNo}}</a></li>
+                    </ul>
+                </aside>
+                <!-- /sidebar -->
+                <!-- main content -->
+                <!-- body fixContent -->
+                <div class="fixContentWrap">
+                    <section class="fixContent">
+                        <!-- content top -->
+                        <div class="contentTop">
+                            <span class="pageTitle"><span class="icon-screen" ng-bind="FormName"></span><span class="CycleDetails">{{CycleDetails}}</span></span>
+                            <ul class="quickLinks">
+                                <li ng-show="IsFemale || IsMale" id="liDashboard" ng-click="openDashboard()">
+                                    <a href="" id="patientDashboard" title="Patient Dashboard">
+                                        <span class="icoPatientDash"></span> Patient Dashboard
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /content top -->
+                        <!-- breadcrumbs -->
+                        <div class="breadLine">
+                            <div class="breadcrumbContenair">
+                                <ul id="breadcrumbs" class="breadcrumbs">
+                                    @*<li><a href="#EMRLandingPage">ART Dashboard</a></li>*@
+                                    <li ng-if="IsFemaleActive || IsCycleActive"> <a href="#EMRLandingPage" title="Female" class="dashboard_female"></a></li>
+                                    <li ng-if="IsMaleActive"> <a href="#EMRLandingPage" title="Male" class="dashboard_male"></a></li>
+                                    <li ng-repeat="breadcrumb in Breadcrum">
+                                        <a href="{{'#'+breadcrumb.Path}}">{{breadcrumb.Title}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            @*<div ng-include="'Templates/BreadCrumb.html'"></div>*@
+                            <div class="breadLinks">
+                                <ul>
+                                    <li class="dropdown">
+                                        <a ng-show="isAction" href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            @*<li><a href="#" title=""><span class="glyphicon glyphicon-print"></span> Print</a></li>*@
+                                            <li ng-show="IsEmrPrint==true"><a href="" title="Print" class="cursorPointer" ng-click="OpenPrint('PrintVisitPopUp')"><span class="glyphicon glyphicon-print"></span> Print</a></li>
+                                            <li ng-if="OrderList==1"><a href="" title="" class="cursorPointer" ng-click="OpenInvestigation('investigationPopUp')">Order Investigation</a></li>
+                                            <li ng-if="OrderList==1"><a href="" title="" class="cursorPointer" ng-click="OpenPreScription('PrescriptionPopUp')">Order Prescription</a></li>
+                                            <li ng-if="ForMedia==1"><a href="" title="" class="cursorPointer" ng-click="OpenMedia('MediaPopUp')">Media</a></li>
+                                            <li ng-if="ForConsent==1"><a href="" title="" class="cursorPointer" ng-click="OpenConsent('ConsentPopUp')">Consent</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /breadcrumbs -->
+                    </section>
+                </div>
+                <!-- /body fixContent -->
+                <!-- page content -->
+                <section class="main_content" ng-click="closeAsideMenu()">
+                    @*<div class="row">*@@*<div class="row">*@ <!--by suresh -->
+
+                    @RenderBody()
+
+                    @*</div>*@
+                    @*</div>*@
+                </section>@*<div class="clear"></div>*@
+
+                <!-- /page content -->
+                <!-- /main content -->
+            </div>
+        </section>
+    </main>
+    <!-- /wrapper -->
+    <footer>Copyright &copy 2017, Design & Developed by PALASH IVF Solutions Pvt. Ltd.</footer>
+    <!-- slide-left women -->
+    <article id="menu--slide-left" class="menu menu--slide-left" ng-class="{'active-sm':showFemalePopUp}">
+        <button class="menuClose glyphicon glyphicon-menu-left" ng-click="closeAsideMenu()"></button>
+
+        <!-- patient basic info -->
+        <table class="patient_basicInfo">
+
+            @*<td><div class="patientImg"> <img ng-src="{{CoupleDetails.FemalePatient.FemalePhotoStr}}" width="100%" alt=""> </div></td>*@
+
+            <tr>
+                <td colspan="2"><b class="patientName Capitalize">{{CoupleDetails.FemalePatient.FemalePatientName}}</b></td>
+            </tr>
+
+            <tr>
+                <td width="140">
+                    <b>Wt : </b><span ng-if="CoupleDetails.FemalePatient.FemaleWeight!=0">{{CoupleDetails.FemalePatient.FemaleWeight}} Kg</span>
+                    <span ng-if="CoupleDetails.FemalePatient.FemaleWeight==0">-</span><br />
+                    <b>Ht : </b><span ng-if="CoupleDetails.FemalePatient.FemaleHeight!=0">{{CoupleDetails.FemalePatient.FemaleHeight}} cm</span>
+                    <span ng-if="CoupleDetails.FemalePatient.FemaleHeight==0">-</span>
+                </td>
+                <td>
+                    <b>BMI : </b><span ng-if="CoupleDetails.FemalePatient.FemaleBMI !=0.00">{{CoupleDetails.FemalePatient.FemaleBMI | number:2}}</span>
+                    <span ng-if="CoupleDetails.FemalePatient.FemaleBMI ==0.00">-</span> <br>
+                    <b>DOB:</b> {{CoupleDetails.FemalePatient.FemaleDOB  | date:"dd-MMM-yyyy"}}
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><b>Allergies:</b></td>
+                <td class="overflowTxt">
+                    <span class="tooltip_element" style="color:red">
+                        <span class="tooltiptext tooltip-top">{{CoupleDetails.FemalePatient.Allergies}}</span>
+                        <span class="txt_ellipsis">{{CoupleDetails.FemalePatient.Allergies}}</span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Addiction:</b></td>
+                <td>{{CoupleDetails.FemalePatient.Addictions}}</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><b>Current Cycle: </b></td>
+                <td>
+                    {{CoupleDetails.FemalePatient.CycleCode}} <br ng-if="CoupleDetails.FemalePatient.CycleCode !=''">
+                    {{CoupleDetails.FemalePatient.ARTType}} <br ng-if="CoupleDetails.FemalePatient.CycleCode !=''">
+                    {{CoupleDetails.FemalePatient.ARTSubType}}
+                    <span ng-if="CoupleDetails.FemalePatient.CycleCode ==''">No current cycle</span>
+                </td>
+            </tr>
+            <tr ng-show="CoupleDetails.FemalePatient.ARTType == 'OR - Linked' || CoupleDetails.FemalePatient.ARTType == 'ER - Linked'">
+                <td valign="top"><b>Donor Code: </b></td>
+                <td>
+                    {{CoupleDetails.FemalePatient.DonarCode}}
+                </td>
+            </tr>
+            <tr ng-show="CoupleDetails.FemalePatient.IsDonor && CoupleDetails.FemalePatient.IsDonor !=''">
+                <td valign="top"><b>Couple Code: </b></td>
+                <td>
+                    {{CoupleDetails.FemalePatient.CoupleCode}}
+                </td>
+            </tr>
+
+            @*<tr><td><b>Current Cycle: </b></td></tr>
+                <tr ng-if="CoupleDetails.FemalePatient.CycleCode !=''">
+                    <td>{{CoupleDetails.FemalePatient.CycleCode}}</td>
+                    <td>{{CoupleDetails.FemalePatient.ARTType}}</td>
+                    <td>{{CoupleDetails.FemalePatient.ARTSubType}}</td>
+                </tr>*@
+            @*<tr><td><b></b></td></tr>*@
+            <tr ng-if="CoupleDetails.FemalePatient.CycleCode !=''">
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @*<tr ng-if="CoupleDetails.FemalePatient.CycleCode ==''"><td>No current cycle</td></tr>*@
+            <tr ng-if="CoupleDetails.FemalePatient.CycleCode ==''"><td></td></tr>
+        </table>
+        <!-- /patient basic info -->
+        <!-- attention -->
+        <div class="infoAttention" ng-hide="true"><b>Attention :</b> <span> HIV Negative </span></div>
+        <!-- /attention -->
+        <!-- ico nav -->
+        <div class="icoNav">
+            <ul>
+                <li ng-repeat="item in FemaleParentList">
+                    <a href="" class="icoLink {{item.ImagePath}}" ng-if="item.MenuFor==2" title="{{item.IconTitle}}" ng-click="Navigate(CoupleDetails.FemalePatient.GenderID,item.Path,item.Title,item.ModuleId)"></a>
+                    <span ng-if="item.MenuFor==2" class="icoTitle">{{item.IconTitle}}</span>
+                </li>
+                @*<li ng-if="item.MenuFor==2">{{item.Title}}</li>*@
+                <li ng-if="item.MenuFor==2"></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!-- /ico nav -->
+    </article>
+    <!-- /slide-left women -->
+    <!-- slide-left Men -->
+    <article id="menu--slide-left2" class="menu menu--slide-left" ng-class="{'active-sm':showMalePopUp}">
+        <button class="menuClose glyphicon glyphicon-menu-left" ng-click="closeAsideMenu()"></button>
+
+        @*<td><div class="patientImg"> <img ng-src="{{CoupleDetails.MalePatient.MalePhotoStr}}" width="100%" alt=""> </div></td>*@
+
+        <!-- patient basic info -->
+        <table class="patient_basicInfo">
+
+            <tr>
+                <td colspan="2"><b class="patientName Capitalize">{{CoupleDetails.MalePatient.MalePatientName}}</b></td>
+            </tr>
+
+            <tr>
+
+                <td width="140">
+                    <b>Wt : </b><span ng-if="CoupleDetails.MalePatient.MaleWeight!=0">{{CoupleDetails.MalePatient.MaleWeight}} Kg </span>
+                    <span ng-if="CoupleDetails.MalePatient.MaleWeight==0">-</span><br>
+                    <b>Ht : </b><span ng-if="CoupleDetails.MalePatient.MaleHeight!=0">{{CoupleDetails.MalePatient.MaleHeight}} cm </span>
+                    <span ng-if="CoupleDetails.MalePatient.MaleHeight==0">-</span>
+                </td>
+                <td>
+                    <b>BMI : </b><span ng-if="CoupleDetails.MalePatient.MaleBMI!=0.00">{{CoupleDetails.MalePatient.MaleBMI | number:2}} </span>
+                    <span ng-if="CoupleDetails.MalePatient.MaleBMI==0.00">-</span><br>
+                    <b>DOB:</b> {{CoupleDetails.MalePatient.MaleDOB| date:"dd-MMM-yyyy"}}
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Allergies</b></td>
+                <td class="overflowTxt" colspan="2">
+                    <span class="tooltip_element" style="color:red">
+                        <span class="tooltiptext tooltip-top">{{CoupleDetails.MalePatient.Allergies}}</span>
+                        <span class="txt_ellipsis">{{CoupleDetails.MalePatient.Allergies}}</span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Addiction:</b></td>
+                <td>{{CoupleDetails.MalePatient.Addictions}}</td>
+            </tr>
+        </table>
+        <!-- /patient basic info -->
+        <!-- attention -->
+        <div class="infoAttention" ng-hide="true"><b>Attention :</b> <span> HIV Negative </span></div>
+        <!-- /attention -->
+        <!-- ico nav -->
+        <div class="icoNav">
+            <ul>
+                <li ng-repeat="item in MaleParentList">
+                    <a href="" class="icoLink {{item.ImagePath}}" ng-if="item.MenuFor==1" title="{{item.IconTitle}}" ng-click="Navigate(CoupleDetails.MalePatient.GenderID,item.Path,item.Title,item.ModuleId)"></a>
+                    <span ng-if="item.MenuFor==1" class="icoTitle">{{item.IconTitle}}</span>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!-- /ico nav -->
+    </article>
+    <!-- /slide-left women -->
+    <!-- slide-right patient dashboard -->
+    <article id="menu--slide-right" class="menu menu--slide-right psntDash">
+        <button class="menuClose glyphicon glyphicon-menu-right" ng-click="openDashboard()"></button>
+
+        <div class="row" id="patient_dashboard">
+
+            <div class="col-lg-8" ng-show="IsFemale" id="maleInfo">
+                <h4>{{FemaleDashboard.Name}} <span>{{FemaleDashboard.MRNo}}</span></h4>
+                <div>
+                    <div class="content_patientDashboard">
+                        <table class="patient_basicInfo">
+
+                            <tbody>
+
+                                <tr>
+                                    <td><b>Diagnosis</b></td>
+                                    <td colspan="5">
+                                        : <span ng-if="FemaleDashboard.Diagnosis!=''">{{FemaleDashboard.Diagnosis}}</span>
+                                        @*<span ng-if="FemaleDashboard.Diagnosis==''">-</span></td>*@
+                                </tr>
+
+                                <tr>
+                                    <td><b>Trying to conceive</b></td>
+                                    <td colspan="5">
+                                        :<span ng-if="FemaleDashboard.TrayingToConvinceYears!=0"> {{FemaleDashboard.TrayingToConvinceYears}} years</span>
+                                        @*<span ng-if="FemaleDashboard.TrayingToConvinceYears==0">-</span>*@<span ng-if="FemaleDashboard.TrayingToConvinceMonths!=0">{{FemaleDashboard.TrayingToConvinceMonths}} months</span>
+                                        @*<span ng-if="FemaleDashboard.TrayingToConvinceMonths==0">-</span></td>*@
+                                </tr>
+
+                                <tr>
+                                    <td><b>MC</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.MenstrualDays}} <span ng-if="FemaleDashboard.MenstrualDays!=''">days/</span>{{FemaleDashboard.CycleDuration}} <span ng-if="FemaleDashboard.CycleDuration!=''">days/</span>{{FemaleDashboard.MenstrualRegularity}}</td>
+
+                                    <td><b>Infertility</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.InfertilityType}}<span ng-if="FemaleDashboard.InfertilityType!=''">/</span><span ng-if="FemaleDashboard.FemaleInfertility=='Yes'">Female</span><span ng-if="FemaleDashboard.MaleInfertility=='Yes'">Male</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6"><b>Previous T/t :</b></td>
+                                </tr>
+
+                                <tr>
+
+                                    <td><b>Outside</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.OutSide}}</td>
+
+                                    <td><b>Inhouse</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.InHouse}}</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>LMP</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.LMPDate| date:'dd-MMM-yyyy'}} </td>
+
+                                    <td><b>ART Type</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.CurrentArtType}} </td>
+
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>Protocol</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.Protocol}} </td>
+
+                                    <td><b>Indication</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.Indication}} </td>
+                                </tr>
+
+                                <tr ng-show="FemaleDashboard.DonorCode!=''">
+                                    <td><b>Donor Code</b></td>
+                                    <td colspan="2">:  {{FemaleDashboard.DonorCode}} </td>
+
+                                    <td><b>Surrogate</b></td>
+                                    <td colspan="2">:  BLR-MSR-2017-02-192 </td>
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td><b>FSH</b></td>
+                                    <td colspan="2"> : 4.5 (29 jun 2017)</td>
+
+                                    <td><b>LH</b></td>
+                                    <td colspan="2"> : 3.2 (29 jun 2017)</td>
+
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>PRL</b></td>
+                                    <td colspan="2"> : 8.8 (29 jun 2017)</td>
+
+                                    <td><b>AMH</b></td>
+                                    <td colspan="2"> : 4.23 (29 jun 2017)</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td><b>TSH</b></td>
+                                    <td colspan="2"> : 4.62 (29 jun 2017)</td>
+
+                                    <td><b>E2</b></td>
+                                    <td colspan="2"> : 60.3 (29 jun 2017)</td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td><b>BSL</b></td>
+                                    <td colspan="2"> : 200 (29 jun 2017)</td>
+
+                                    <td><b>Insulin</b></td>
+                                    <td colspan="2"> : 5.75 (29 jun 2017)</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>GTT</b></td>
+                                    <td colspan="5"> : Normal (29 jun 2017)</td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Pap Smear</b></td>
+                                    <td colspan="5">: No abnormality detected</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>Endometrial Culture</b></td>
+                                    <td colspan="5">: No abnormality detected</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>USG</b></td>
+                                    <td colspan="5">: Uterus Normal size and shape Bilateral Ovaries polycystic</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>Laparoscopy</b></td>
+                                    <td colspan="5">: No Suprahepatic adhesions Bilateral tubes normal</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><b>Hysteroscopy</b></td>
+                                    <td colspan="5">: Tubes patent POD Clear</td>
+
+                                </tr>
+
+
+                                <tr>
+                                    <td><b>HSG</b></td>
+                                    <td colspan="5">: Tubes patent POD Clear</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4" ng-show="IsMale" id="femaleInfo">
+
+                <h4>{{MaleDashboard.Name}} <span>{{MaleDashboard.MRNo}}</span></h4>
+                <div ng-scrollbars ng-scrollbars-config="config">
+                    <div class="content_patientDashboard rel-r-10">
+                        <table class="patient_basicInfo">
+
+                            <tbody>
+
+                                <tr>
+                                    <td><b>Diagnosis</b></td>
+                                    <td>
+                                        : <span ng-if="MaleDashboard.Diagnosis!=''">{{MaleDashboard.Diagnosis}}</span>
+                                        <span ng-if="MaleDashboard.Diagnosis==''"> <b>  ----</b></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2"><b>Semen Analysis :</b></td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Date</b></td>
+                                    <td>
+                                        : <span ng-if="MaleDashboard.LatestSemenAnalysisDate!=null">{{MaleDashboard.LatestSemenAnalysisDate}}</span>
+                                        <span ng-if="MaleDashboard.LatestSemenAnalysisDate==null"><b>  ----</b></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Motility</b></td>
+                                    <td>
+                                        : <span ng-if="MaleDashboard.TotalMotility!=0">{{MaleDashboard.TotalMotility}}</span>
+                                        <span ng-if="MaleDashboard.TotalMotility==0"><b>  ----</b></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><b>Sperm Conc</b></td>
+                                    <td>
+                                        : <span ng-if="MaleDashboard.SpermConcentration!=0">{{MaleDashboard.SpermConcentration}} million/ml</span>
+                                        <span ng-if="MaleDashboard.SpermConcentration==0"><b>  ----</b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Interpretation</b></td>
+                                    <td>
+                                        : <span ng-if="MaleDashboard.Interpretation!=''">{{MaleDashboard.Interpretation}}</span>
+                                        <span ng-if="MaleDashboard.Interpretation==''"><b>  ----</b></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Frozen Semen </b></td>
+                                    <td class="dashboardConditionBtn">: <span ng-class="{'DeActiveIcon':MaleDashboard.IsThaw=='True','ActiveIcon':MaleDashboard.IsThaw=='False'}"></span></td>
+                                </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </article>
+    <div class="clear"></div>
+    <!-- /slide-right patient dashboard -->
+    <!-- overlay -->
+    <div id="overlay" class=""></div>
+    <!-- overlay -->
+    <!--Visit List PopUp Start-->
+    <script id="PrintVisitPopUp" type="text/ng-template">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ng-click="Cancel()">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Visit List@*Dr. Priyanka  BLR-MSR-2016 / Dr. Priyanka  BLR-MSR-2016*@</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="row">
+                    <!-- <div class="col-sm-12 "><h4 class="formTitle"></h4></div> -->
+                    <div class="col-sm-12">
+                        <div style="" class="table-responsive ">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Visit Date</th>
+                                        <th>OPD No</th>
+                                        <th>Doctor</th>
+                                        <th>History</th>
+                                        <th>Prescriptions</th>
+                                        <th>Pathology</th>
+                                        <th>Radiology</th>
+                                        <th>Summary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="Item in PatientVisitList">
+                                        <td>{{Item.Date | date:"dd-MM-y"}} {{Item.Date | date:"h:mm a"}} </td>
+                                        <td>{{Item.OPDNO}}</td>
+                                        <td>{{Item.DocName}}</td>
+                                        <td><span title="Print" class="glyphicon glyphicon-print" ng-click="PrintHistory(Item)"></span></td>
+                                        <td><span title="Print" class="glyphicon glyphicon-print" ng-click="PrintPrescriptions(Item)"></span></td>
+                                        <td><span title="Print" class="glyphicon glyphicon-print" ng-click="PrintPathology(Item)"></span></td>
+                                        <td><span title="Print" class="glyphicon glyphicon-print" ng-click="PrintRadiology(Item)"></span></td>
+                                        <td><span title="Print" class="glyphicon glyphicon-print" ng-click="PrintSummary(Item)"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <uib-pagination total-items="TotalItems" ng-model="CurrentPage" ng-change="PageChange()" max-size="5" class="m-t-0 pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="10" first-text="First" previous-text="Previous" next-text="Next" last-text="Last"></uib-pagination>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </script>
+    <!--Visit List PopUp End-->
+    @*Visit Select Model box*@
+    <script type="text/ng-template" id="visitmodel">
+        <div class="table-responsive fixed_header">
+            <table class="table table-hover table-striped table-hover selectPatient_item" id="" style="max-height:650px;">
+                <thead>
+                    <tr>
+                        @*<th>&nbsp;</th>*@
+                        <th st-ratio="10">Select</th>
+                        <th st-ratio="18">Date</th>
+                        <th st-ratio="17">Time</th>
+                        <th st-ratio="20">OPD NO </th>
+                        <th st-ratio="35">Doctor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Item in visitInformation">
+                        @*<td><a href="" ng-click="SelectPatient(Item)">Select</a></td>*@
+                        <td st-ratio="10" class="text-center">
+                            @*<div class="inputChkbx inputNone">
+                                    <input type="checkbox" name="" ng-click="SelectPatient(Item)" id="{{$index}}">
+                                    <label for="{{$index}}"><span class="checkbox"></span></label>
+                                </div>*@
+                            <input type="checkbox" name="" ng-click="SelectPatient(Item)" id="{{$index}}">
+                            <label for="{{$index}}"><span class="checkbox"></span></label>
+                        </td>
+                        <td st-ratio="18">{{Item.Date | date:"dd-MM-y"}}</td>
+                        <td st-ratio="17">{{Item.Date | date:"h:mm a"}} </td>
+                        <td st-ratio="20">{{Item.OPDNO}}</td>
+                        <td st-ratio="35">{{Item.DocName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </script>
+    <!-- /overlay -->
+    <!--Investigation PopUp Start-->
+    <script type="text/ng-template" id="investigationPopUp">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="Cancel();"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Investigation</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Preliminary Details Start -->
+                <div class="row" ng-init="CatID=1;GetCatwiseServiceList(1);GetTodaysInvestigation(CatID)">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="gridBorder">
+                            <div class="row">
+                                <!-- <section class="col-md-12 col-lg-12"><span class="title">Investigations</span></section> -->
+                                <div class="col-md-12 col-lg-12 form-horizontal">
+                                    <div class="form-group ">
+                                        <div class="col-md-6 col-lg-5">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions" ng-click="GetCatwiseServiceList(1)" ng-model="CatID" id="rdbLab" value="1" ng-checked="true"> Laboratory
+                                            </label>
+                                            <label class="radio-inline p-l-35">
+                                                <input type="radio" name="inlineRadioOptions" ng-click="GetCatwiseServiceList(2)" ng-model="CatID" id="rdbRadio" value="2"> Radiology
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 p-l-0 m-t-5">
+                                            <input type="text" id="txtServiceName" name="txtServiceName" placeholder="" ng-model="selSer" uib-typeahead="i as (i.ServiceCodeDesc) for i in ServiceList | filter:$viewValue | limitTo:8" typeahead-on-select="SelectedService(selSer)" class="form-control Capitalize">
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 p-l-0 m-t-5">
+                                            <button type="button" class="btn-txt-link m-t-0" id="btnAdd" ng-click="AddRow()">@*<span id="spanAdd" class="glyphicon glyphicon-plus"></span>*@<span id="spanAdd" class="glyphicon glyphicon-plus"></span> Add</button>
+                                        </div>
+                                        <div class="col-md-12 col-lg-12">
+                                            <button type="submit" title="Print" class="btn_print" style="position:relative;"><span class="glyphicon glyphicon-print"></span></button>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <!-- Todays Prescriptions (Brand Name) -->
+                                    <div style="min-height:325px;" class="table-responsive" ng-scrollbars ng-scrollbars-config="config">
+                                        <table class="table table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th width="95">Service Code</th>
+                                                    <th width="100">Service Name</th>
+                                                    <th>Date</th>
+                                                    <th>Instruction</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-if="SelectedServiceListLab.length>0">
+                                                    <td><b>Laboratory</b></td>
+                                                </tr>
+                                                <tr ng-repeat="i in SelectedServiceListLab">
+                                                    <td>{{i.ServiceCode}}</td>
+                                                    <td ng-hide="i.ServiceID==0">{{i.Service}}</td>
+                                                    <td ng-show="i.ServiceID==0"><input type="text" ng-model="i.Service" /></td>
+                                                    <td>
+                                                        <div class="input-group date">
+                                                            <input type="text" class="form-control" id="dtplannedDate" name="dtplannedDate" ng-model="i.PlannedDate" placeholder="dd-Mon-yyyy" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="i.dtpickropened" datepicker-options="dateOptions" alt-input-formats="altInputFormats">
+                                                            <span class="input-group-addon" id="" ng-click="openLabDtPickr($event,i)"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" ng-model="i.Instruction" name="txtLabInstruction" id="txtLabInstruction" placeholder="" />
+                                                    </td>
+                                                    <td>
+                                                        <span class="btn_like" data-toggle="modal" ng-click="ShowFavModal(i)">
+                                                            <span class="tooltiptext tooltip-top">Set Favorite</span>
+                                                        </span>
+                                                    </td>
+                                                    <td><span class="btn_delete" data-toggle="modal" ng-click="DeleteService(i)"></span></td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody>
+                                                <tr ng-if="SelectedServiceListRadiology.length>0">
+                                                    <td><b>Radiology</b></td>
+                                                </tr>
+                                                <tr ng-repeat="j in SelectedServiceListRadiology">
+                                                    <td>{{j.ServiceCode}}</td>
+                                                    <td ng-hide="j.ServiceID==0">{{j.Service}}</td>
+                                                    <td ng-show="j.ServiceID==0"><input type="text" ng-model="j.Service" maxlength="500" /></td>
+                                                    <td>
+                                                        <div class="input-group date">
+                                                            <input type="text" class="form-control" id="dtplannedDate" name="dtplannedDate" ng-model="j.PlannedDate" placeholder="dd-Mon-yyyy" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="j.dtpickropened" datepicker-options="dateOptions" alt-input-formats="altInputFormats">
+                                                            <span class="input-group-addon" id="" ng-click="openLabDtPickr($event,j)"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" ng-model="j.Instruction" name="txtRadioInstruction" id="txtRadioInstruction" maxlength="100" />
+                                                    </td>
+                                                    <td>
+                                                        <span class="btn_like" data-toggle="modal" ng-click="ShowFavModal(j)">
+                                                            <span class="tooltiptext tooltip-top">Set Favorite</span>
+                                                        </span>
+                                                    </td>
+                                                    <td><span class="btn_delete" data-toggle="modal" ng-click="DeleteService(j)"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Preliminary Details End -->
+            </div>
+            <div class="modal-footer">
+                <div class="row page_actions text-right">
+                    <div class="col-lg-12 col-md-12">
+                        <button class="btn btn-primary" type="button" id="" value="" ng-disabled="btnDisabled==true" ng-click="SaveInvestigation()"> Save</button>
+                        <button class="btn btn-default" type="button" id="" ng-click="Cancel();" value=""> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- favorite model -->
+        <div class="modal fade favorite-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="modFavourite">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Template</h4>
+                    </div>
+                    <div class="modal-body" ng-init="templateType='New'">
+                        <label class="radio-inline">
+                            <input type="radio" name="rdbFavourite" id="" ng-model="templateType" value="New" ng-checked="true"> New
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdbFavourite" id="" ng-model="templateType" ng-click="GetTemplateList()" value="Existing"> Existing
+                        </label>
+                        <input type="text" class="form-control" placeholder="" ng-model="Template" ng-show="templateType=='New'" ng-hide="templateType=='Existing'" maxlength="100">
+                        <select class="form-control" ng-model="TemplateID" ng-options="u.ID as u.Description for u in TemplateList" ng-hide="templateType=='New'" ng-show="templateType=='Existing'"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="page_actions">
+                            <button class="btn btn-primary" type="button" id="" value="" ng-click="SetFavouriteUnsaved(Template,TemplateID)"> Save</button>
+                            <button class="btn btn-default" type="button" id="" value="" data-dismiss="modal"> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /favorite model -->
+        <!-- reason model -->
+        <div class="modal fade reason-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="reasonModel1">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Reason</h4>
+                    </div>
+                    <div class="modal-body" ng-class="{'Invalid':frmInv.txtReason.$invalid && frmInv.txtReason.$dirty}">
+                        <textarea class="form-control" id="txtReason" name="txtReason" ng-required="true" maxlength="100" rows="2" ng-model="deleteReason"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="page_actions">
+                            <button class="btn btn-primary" type="button" id="" value="" ng-click="DeleteSavedService(deleteReason)"> Save</button>
+                            <button class="btn btn-default" type="button" id="" value="" data-dismiss="modal"> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /reason model -->
+    </script>
+    <!--Investigation PopUp End-->
+    <!--Prescription PopUp Start-->
+    <script type="text/ng-template" id="PrescriptionPopUp">
+        <div class="modal-content" ng-init="PageSetup()">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="Cancel();"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Prescription</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 m-t-5">
+                        <label class="radio-inline">
+                            <input type="radio" name="IsBrand" id="IsBrand" ng-checked="IsBrand" ng-click="OnChange(1)"> Brand Name
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions3" id="" ng-checked="IsMolecule" ng-click="OnChange(2)"> Generic Name
+                        </label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <form class="form-inline" name="frmTdrugs" novalidate>
+                            <div class="form-group p-0" ng-show="IsBrand">
+                                <input type="text" class="form-control" id="SelectedDrug" placeholder="Search By Brand" name="SelectedDrug" ng-class="{select:frmTdrugs.SelectedDrug.$invalid && frmTdrugs.SelectedDrug.$dirty && IsBrand==1}" ng-required="true" ng-model="SelectedDrug" uib-typeahead="i as (i.Description) for i in getMatchingBrand($viewValue) | limitTo : 8" typeahead-on-select="onSelect($item, $model, $label)">
+                            </div>
+                            <div class="form-group p-0" ng-show="IsMolecule">
+                                <input type="text" class="form-control" id="SelectedMolecule" placeholder="Search By Generic" name="SelectedMolecule" ng-class="{select:frmTdrugs.SelectedMolecule.$invalid && frmTdrugs.SelectedMolecule.$dirty && IsMolecule==1}" ng-required="true" ng-model="SelectedMolecule" uib-typeahead="i as (i.Description) for i in getMatchingMolecule($viewValue) | limitTo : 8" typeahead-on-select="onSelect($item, $model, $label)">
+                            </div>
+                            <button type="submit" class="btn btn-default" ng-click="AddDrug()">Add</button>
+                            <span class="bdr_right"></span>
+                            <button type="submit" class="btn btn-default" ng-click="AddOtherDrug()">Add Other Drug</button>
+                            <button type="submit" title="Print" class="btn btn-default btn_print"><span class="glyphicon glyphicon-print"></span></button>
+                        </form>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12">
+                        <!-- Todays Prescriptions (Brand Name) -->
+                        <div class="table-responsive" ng-scrollbars ng-scrollbars-config="config">
+                            <table class="table table-hover table-striped mt15" style="min-width:1580px;">
+                                <thead>
+                                    <tr>
+                                        <th width="">Drug Name</th>
+                                        <th width="">Generic Name</th>
+                                        <th width="">Strength</th>
+                                        <th>UOM</th>
+                                        <th width="">Route</th>
+                                        <th width="">Frequency</th>
+                                        <th width="">Drug Source</th>
+                                        <th width="">Instruction</th>
+                                        <th width="">Days</th>
+                                        <th width="">Quantity</th>
+                                        <th width="150">Warning / Precautions</th>
+                                        <th width="150">Doctor</th>
+                                        <th width="100">Counter Sale</th>
+                                        <th width="40">&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="" ng-repeat="Item in TodaysDrugs.DrugList | orderBy:SortColumn:reverseSort">
+                                        <td ng-show="!Item.IsOther">{{Item.ItemName}}</td>
+                                        <td ng-show="Item.IsOther"><input type="text" class="form-control" id="ItemName" placeholder="" ng-model="Item.ItemName" /></td>
+                                        <td>{{Item.MoleculeName}}</td>
+                                        <td>
+                                            <div class="form-group" ng-show="Item.IsMolecule || Item.IsOther">
+                                                <input type="text" class="form-control" id="Strength" name="Strength" placeholder="" ng-model="Item.Strength" />
+                                            </div>
+                                            <div class="form-group" ng-show="!Item.IsMolecule && !Item.IsOther">
+                                                yyy
+                                            </div>
+                                        </td>
+                                        <td>{{Item.UOM}}</td>
+                                        <td>
+                                            <select id=""
+                                                    ng-model="Item.RouteID"
+                                                    class="form-control"
+                                                    ng-options="item.ID as item.Description for item in RouteList"></select>
+                                        </td>
+                                        <td>
+                                            <select id=""
+                                                    ng-model="Item.FrequencyID"
+                                                    class="form-control"
+                                                    ng-options="item.ID as item.Description for item in FrequencyList"></select>
+                                        </td>
+                                        <td>
+                                            <select id=""
+                                                    ng-model="Item.DrugSourceId"
+                                                    class="form-control"
+                                                    ng-options="item.ID as item.Description for item in DrugSourceList"></select>
+                                        </td>
+                                        <td>
+                                            <select id=""
+                                                    ng-model="Item.InstructionID"
+                                                    class="form-control"
+                                                    ng-options="item.ID as item.Description for item in InstructionList"></select>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="Days" placeholder="" ng-model="Item.Days" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Quantity" placeholder="" ng-model="Item.Quantity" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" id="Warning" placeholder="" ng-model="Item.Warning" />
+                                        </td>
+                                        <td>{{Item.AddedByName}}</td>
+                                        <td>
+                                            <div class="counterSale"><span class="issue">{{Item.IssueStatus}}</span></div>
+                                        </td>
+                                        <td><span class="btn_delete" ng-click="RemoveAddDrugRow($index,Item)"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row page_actions text-right">
+                    <div class="col-lg-12 col-md-12">
+                        <button class="btn btn-primary" type="button" id="" value="" ng-click="SavePrescription()"> Save</button>
+                        <button class="btn btn-default" type="button" id="" ng-click="Cancel();" value=""> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Prescription PopUp End-->
+        @*delete Todays Select Model box*@
+        <script type="text/ng-template" id="DeleteTodaysmodel">
+            <form name="frmTodaysReason" novalidate>
+                <div tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" ng-click="Cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Reason</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <textarea id="Comment" name="Comment" class="form-control" ng-model="Item.Comment" rows="2" ng-required="true" ng-class="{select:frmTodaysReason.Comment.$dirty && (Item.Comment == null || Item.Comment == undefined)}"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="page_actions">
+                                <button class="btn btn-primary" type="button" ng-click="Delete(Item)"> Save</button>
+                                <button class="btn btn-default" type="button" id="" value="" data-dismiss="modal" ng-click="Cancel()"> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </script>
+    </script>
+    <!--Prescription PopUp End-->
+    <!--Media PopUp Start-->
+    <script type="text/ng-template" id="MediaPopUp">
+        <div class="modal-content MediaPopUp" ng-init="PageSetup()">
+            <div class="modal-header">
+                <button type="button" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Media
+                    &nbsp;-
+                    <span class="femaleDetails Capitalize"> {{CoupleDetails.FemalePatient.FemalePatientName}} <small>(({{CoupleDetails.FemalePatient.FemalePatientMRNO}}))</small></span> /
+                    <span class="femaleDetails Capitalize">{{CoupleDetails.MalePatient.MalePatientName}}<small>(({{CoupleDetails.FemalePatient.FemalePatientMRNO}}))</small></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!-- Accordion Start -->
+                <div class="panel-group User-Role-Collapse m-b-0" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h3 class="title">
+                                <a role="button" data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="CollapseTabArrowIcon"></span>
+                                    List Of Media Consume
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 form-horizontal">
+                                        <div class="form-group m-b-10">
+                                            <div class="col-sm-4 col-md-5 col-lg-4">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="" placeholder="Search">
+                                                    <span class="input-group-addon glyphicon glyphicon-search cursorPointer" id="spanSearch" type="button"></span><!-- </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8 col-md-7 col-lg-8 text-right">
+                                                <a class="text-right btn-txt-link m-t-0 collapsed cursorPointer" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"> New </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="table-responsive" style="min-height:70px; max-height:170px;" ng-scrollbars ng-scrollbars-config="config">
+                                            <table style="min-width:1045px" class="table table-hover table-bordered table-striped m-t-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="95px">Date</th>
+                                                        <th width="100px">Item Code</th>
+                                                        <th width="215px">Item Name</th>
+                                                        <th width="70px">Batch</th>
+                                                        <th width="95px">Expiry Date</th>
+                                                        <th width="70px">Used Qty</th>
+                                                        <th width="100px">UOM</th>
+                                                        <th width="65px">Finalize</th>
+                                                        <th width="65px">Delete</th>
+                                                        <th width="175px">Procedure</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>10/12/2017</td>
+                                                        <td>02-192</td>
+                                                        <td>Item Xyz</td>
+                                                        <td>Batch1</td>
+                                                        <td>10/12/2017</td>
+                                                        <td>12</td>
+                                                        <td>UMO data</td>
+                                                        <td class="text-center inputNone">
+                                                            <div class="inputChkbx">
+                                                                <input type="checkbox">
+                                                                <label><span class="checkbox" name="chkSelect"></span></label>
+                                                            </div>
+                                                        </td>
+                                                        <!-- <td><input type="checkbox"/></td> -->
+                                                        <td><span class="btn_delete" data-toggle="modal" data-target=".reason-modal"></span></td>
+                                                        <td>Oocyte Freezing</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row page_actions text-right">
+                                    <div class="col-lg-12 col-md-12">
+                                        <button class="btn btn-primary" type="button" id="" value=""> Save</button>
+                                        <button class="btn btn-default" type="button" id="" value="" ng-click="Cancel()"> Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab">
+                            <h3 class="title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="CollapseTabArrowIcon"></span>
+                                    New
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group ">
+                                            <div class="col-md-3 col-lg-3">
+                                                <select class="form-control " ng-model="SearchData.UnitID" ng-options="item.ID as item.Description for item in ClinicList" ng-change="GetItemList()" />
+                                            </div>
+                                            <div class="col-md-3 col-lg-3">
+                                                <select class="form-control " id="">
+                                                    <option>Store</option>
+                                                    <option>--Select--</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3">
+                                                <input type="text" class="form-control" id="SelectedItem" placeholder="Search Item" name="SelectedItem" ng-model="SelectedItem" uib-typeahead="i as (i.ItemName) for i in GetMatchingItems($viewValue) | limitTo : 8" typeahead-on-select="onSelect($item, $model, $label)">
+                                            </div>
+                                            <div class="col-md-2 col-lg-2 p-l-0">
+                                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" ng-click="AddDrug()"></span> Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="table-responsive" style="min-height:80px; max-height:170px;" ng-scrollbars ng-scrollbars-config="config">
+                                            <table style="min-width:1045px" class="table table-hover table-bordered table-striped mt15">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="75px">Itemcode</th>
+                                                        <th width="300px">Itemname</th>
+                                                        <th width="90px">Batch</th>
+                                                        <th width="85px">AvailableQty</th>
+                                                        <th width="95px">Expiry Date</th>
+                                                        <th width="100px">Used Qty</th>
+                                                        <th width="140px">UOM</th>
+                                                        <th width="160px">Procedure</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in MediaConsumption">
+                                                        <td>{{item.ItemCode}}</td>
+                                                        <td>{{item.ItemName}}</td>
+                                                        <td><input type="text" ng-model="item.BatchName" name="txtBatchName" id="txtBatchName"></td>
+                                                        <td>100</td>
+                                                        <td>
+                                                            <div class="input-group date">
+                                                                <input type="text" class="form-control text-center" id="txtThawingDate" name="txtThawingDate" placeholder="dd-Mmm-yyyy" ng-model="item.ExpiryDate" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="item.opened" datepicker-options="dateOptions" alt-input-formats="altInputFormats">
+                                                                <span class="input-group-addon" id="" ng-click="open($event,item)"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control" id="ddlAvailableQty" name="ddlAvailableQty" placeholder="" ng-model="item.UsedQty" />
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control" name="ddlUOMList" id="ddlUOMList" ng-model="item.UOMID" ng-options="item.ID as item.Description for item in UOMList" />
+                                                        </td>
+                                                        <td>
+                                                            <select class="form-control" name="ddlProcedureList" id="ddlProcedureList" ng-model="item.ProcedureID" ng-options="item.ID as item.Description for item in MediaProcedureList" />
+                                                        </td>
+                                                        <td><span class="btn_delete" ng-click="RemoveAddDrugRow($index,item)"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row page_actions text-right">
+                                    <div class="col-lg-12 col-md-12">
+                                        <button class="btn btn-primary" type="button" id="" value=""> Save</button>
+                                        <button class="btn btn-default" type="button" id="" value="" ng-click="Cancel()"> Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion End -->
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </script>
+    <!--Media PopUp End-->
+    <!--Consent-->
+    <script type="text/ng-template" id="ConsentPopUp">
+        <div class="modal-content" ng-init="PageSetup()" id="model_consent">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="Cancel()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Consent
+                    &nbsp;-
+                    <span class="femaleDetails Capitalize">{{CoupleDetails.FemalePatient.FemalePatientName}}  <small>(({{CoupleDetails.FemalePatient.FemalePatientMRNO}}))</small></span> /
+                    <span class="femaleDetails Capitalize">{{CoupleDetails.MalePatient.MalePatientName}} <small>(({{CoupleDetails.FemalePatient.FemalePatientMRNO}}))</small></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!-- Accordion Start -->
+                <div class="panel-group User-Role-Collapse m-b-0" id="accordionConsent" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h3 class="title">
+                                <a role="button" data-toggle="collapse" class="collapsed" data-parent="#accordionConsent" data-target="#collapseConsent1" aria-expanded="true" aria-controls="collapseConsent1">
+                                    <span class="CollapseTabArrowIcon"></span>
+                                    Consent
+                                </a>
+                            </h3>
+                        </div>
+                        <div id="collapseConsent1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control " ng-model="Search.ConsentID" ng-options="item.ID as item.Description for item in ConsentList" />
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-primary" type="button" id="" value="" ng-click="AddConsent(0,0)" data-target=".collapseConsent2" data-toggle="collapse" data-parent="#accordionConsent">Add</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="table-responsive tbl_conset">
+                                            <table style="width:1045px" class="table table-hover table-bordered table-striped m-t-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="100px">&nbsp;</th>
+                                                        <th width="215px">Consent Name</th>
+                                                        <th class="text-center" width="70px">Upload</th>
+                                                        <th class="text-center" width="70px">View</th>
+                                                        <th class="text-center" width="95px">&nbsp;</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in ConsentGridList">
+                                                        <td><a data-target=".collapseConsent2" class="collapsed" data-toggle="collapse" data-parent="#accordionConsent" ng-click="AddConsent(item.ID,item.UnitID)">View & Print</a></td>
+                                                        <td>{{item.Consent}}</td>
+                                                        <td class="text-center img-attach">
+                                                            <span class="btn btn-primary fileinput-button">
+                                                                @*<span class="glyphicon glyphicon-paperclip"></span> Attach*@
+                                                                <input type="file" id="{{item.ID}}" name="fileInput" class="upload" onchange="angular.element(this).scope().handleFileSelect(this)" />
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn_view" type="button" id="" value="" ng-click="ViewReport(item)">
+                                                                <span class="glyphicon glyphicon-eye-open"></span>
+                                                            </button>
+                                                        </td>
+                                                        <td class="text-center inputNone">
+                                                            <div class="inputChkbx">
+                                                                <input type="checkbox" ng-model="item.IsFileUploaded">
+                                                                <label><span class="checkbox" name="chkSelect"></span></label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row page_actions text-right">
+                                    <div class="col-lg-12 col-md-12">
+                                        <button class="btn btn-primary" type="button" id="" value="" ng-click="SaveUpdateFile()"> Save</button>
+                                        <button class="btn btn-default" type="button" id="" value="" ng-click="Cancel()"> Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab">
+                            <h3 class="title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionConsent" aria-expanded="false" aria-controls="collapseConsent2">
+                                    <span class="CollapseTabArrowIcon"></span><!-- href="#collapseTwo" -->
+                                    Patient Consent
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="collapseConsent2 panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-2 col-lg-2">
+                                        <div class="form-group">
+                                            Consent : {{ConsentDetails.Consent}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-lg-3">
+                                        <div class="form-group">
+                                            <select class="form-control " ng-model="ConsentDetails.SelectedUnitID" ng-options="item.ID as item.Description for item in ClinicList" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-12" id="printSection1">
+                                        <text-angular ng-model="htmlForm" ta-toolbar="[['h1','h2','h3'],['bold','italics', 'underline', 'strikeThrough', 'ul', 'ol', 'undo', 'redo', 'clear', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent'],['checkbox', 'input', 'datepicker','insertVariable']]"></text-angular>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="col-lg-12 col-md-12 page_actions text-right">
+                                        <button class="btn btn-primary" type="button" id="" value="" ng-click="SaveConsent()"> Save</button>
+                                        <button class="btn btn-primary" ng-print print-element-id="printSection1">Print</button>
+                                        <button class="btn btn-default" type="button" id="" value="" ng-click="Cancel()"> Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion End -->
+            </div>
+
+        </div>
+        <div class="modal fade edit-modal" id="myModal_con" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" id="btnClosePop" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        @*<h4 class="modal-title" id="myModalLabel">
+                                {{FileName}} &nbsp;-
+                                <span class="femaleDetails"> {{PatientName}} <small>({{MRNO}})</small></span>
+                            </h4>*@
+                    </div>
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <div class="text-center" ng-if="extn == 'image'">
+                                <img ng-src="{{Image}}" style="width: 61%; height: 61%;" />
+                            </div>
+                            <div class="wrapper" ng-if="extn != 'image'">
+                                <object ng-show="content" data="{{content}}" type="application/pdf" style="width: 100%; height: 400px;"></object>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row form-horizontal">
+                            <div class="col-lg-12 text-right">
+                                <button class="btn btn-primary" type="button" id="" value="" ng-show="extn == 'image'" ng-click="SaveReport()">Download</button>
+                                <button class="btn btn-primary" type="button" id="" value="" ng-show="extn == 'image'">Print</button>
+                                <button class="btn btn-default" type="button" id="" value="" ng-click="Close()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="ShowForm">
+        <div class="modal-content" ng-init="updateForm()">
+            <div id="consentForm" class="">
+                <form sf-schema="schema" sf-form="form" sf-model="model" ng-submit="submitForm(form,model)"></form>
+            </div>
+        </div>
+        <div class="row page_actions text-right">
+            <div class="col-lg-12 col-md-12">
+                <button class="btn btn-primary " type="button" id="" value="" ng-click="showPDF()"> Print</button>
+                <button class="btn btn-default " type="button" id="" value="" ng-click="Cancel()"> Cancel</button>
+            </div>
+        </div>
+    </script>
+
+    @Scripts.Render("~/bundles/angularScripts")
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/controllers/Authentication/HomeCtlr.js"></script>
+    <script src="~/Scripts/app/controllers/Authentication/DefaultPageCtlr.js"></script>
+    <script src="~/Scripts/app/services/Common/srvCommon.js"></script>
+    <script src="~/Scripts/app/services/Authentication/authService.js"></script>
+    <script src="~/Scripts/app/services/Authentication/authInterceptorService.js"></script>
+    <script src="~/Scripts/app/services/Authentication/LogInService.js"></script>
+    <script src="~/Scripts/app/controllers/Authentication/LayOutController.js"></script>
+    <script src="~/Scripts/app/services/Common/CommonService.js"></script>
+    <script src="~/Scripts/app/StoreDataFactory.js"></script>
+    <script src="~/Scripts/app/controllers/Master/Configuration/UserRoleController.js"></script>
+    <script src="~/Scripts/app/services/Master/Configuration/UserRoleService.js"></script>
+    <script src="~/Scripts/app/controllers/Master/Configuration/UserController.js"></script>
+    <script src="~/Scripts/app/services/Master/Configuration/UserService.js"></script>
+    <script src="../Scripts/app/controllers/BreadCum/BreadCumCtrl.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    <toasty></toasty>
+</body>
+</html>

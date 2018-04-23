@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Gemino - Login</title>
+    <link rel="icon" href="~/images/Gemino_logo.png" type="image/gif" sizes="16x16" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/Dev.css" rel="stylesheet">
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+</head>
+
+<body ng-app="PIVF" class="page_login">
+    <div id="wrapper">
+
+        <!-- Page Content Area Start -->
+        <div id="LoginPageContainer" class="PageContentDiv">
+            <div id="signinBoxContainer" class="container">
+                <div class="signin">
+                    <div class="row-fluid">
+                        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <div id="SignContainer">
+                                <div class="SignInLogoContainer center-align-text">
+                                    <!--<h2 class="center-align-text"></h2>-->
+                                    @*<img src="Images/PIVF_login_Logo.png" alt="PIVF logo">*@
+                                    <img src="~/images/Gemino_logo.png" alt="PIVF logo" />
+                                </div>
+
+                                <div class="SignInLogoContainer center-align-text">
+                                    @RenderBody()
+                                    <hr />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Page Content Area End -->
+        <footer>
+            <div id="Footer" class="FooterContainer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="FooterLogo">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/angularScripts")
+
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/controllers/homeController.js"></script>
+    <script src="~/Scripts/app/services/Authentication/authService.js"></script>
+    <script src="~/Scripts/app/services/Authentication/authInterceptorService.js"></script>
+    <script src="~/Scripts/app/controllers/Authentication/loginController.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>

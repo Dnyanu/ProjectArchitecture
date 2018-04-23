@@ -1,0 +1,17 @@
+﻿@{
+    string CurrentName = Convert.ToString(HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"]).ToString();
+    string layout = "";
+    switch (CurrentName)
+    {
+        case "Authentication":
+            layout = "~/Views/Shared/_LoginPartial.cshtml";
+            break;
+        case "ReportView":
+            layout = null; ;
+            break;
+        default:
+            layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+    Layout = layout;
+}

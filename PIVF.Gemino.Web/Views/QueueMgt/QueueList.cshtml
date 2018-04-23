@@ -1,0 +1,294 @@
+﻿<div ng-init="IsPostBack=true" ng-controller="QueueController">
+
+    @*<section class="PageTitleContaiver">
+            <h2 class="PageTitleH2">@PIVF.Gemino.LanguageResource.Resources.lblQueue</h2>
+        </section>*@
+
+    @*<div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h4 class="formTitle">@PIVF.Gemino.LanguageResource.Resources.lblQueue</div>
+        </div>*@
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="searchContainer" ng-init="show=true">
+                <a href="" class="searchTab1" ng-class="{active:show}" ng-click="show=true;ClearAdvSearch"><i class="fa fa-search" aria-hidden="true"></i>@PIVF.Gemino.LanguageResource.Resources.btnSearch</a>
+                <a class="searchTab2" ng-class="{active:!show}" role="button" data-toggle="collapse" ng-click="show=false;ClearSearch()" aria-expanded="true" aria-controls="AdvanceSearchBox">
+                    <i class="fa fa-search" aria-hidden="true"></i> <span class="CollapseTitleTxt">@PIVF.Gemino.LanguageResource.Resources.lblAdvanceSearch</span>
+                </a>
+                <!-- Main Search Box Start -->
+                <div class="MainSearchBoxContainer" ng-show="show">
+                    <div class="BlackSearchBoxSection" ng-init="LoadData()">
+                        <div class="SearchInputGroupContainer">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="InputBoxDiv">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" id="" ng-model="Que.Date" placeholder="@PIVF.Gemino.LanguageResource.Resources.lblDate" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="popup1.opened" datepicker-options="dateOptionsDOB" alt-input-formats="altInputFormats" ng-keypress="ClearAdvSearch();($event.which === 13)?GetQueueList(Que,false):0" autocomplete="off">
+                                            <span class="input-group-addon" id="" ng-click="open1()"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="InputBoxDiv">
+                                        <select class="form-control " id="" ng-model="Que.DeptID" ng-options="item.ID as item.Description for item in DeptList" ng-keypress="ClearAdvSearch();($event.which === 13)?GetQueueList(Que,false):0"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="InputBoxDiv">
+                                        <select class="form-control" id="" ng-model="Que.DocID" ng-options="item.ID as item.Description for item in DocList" ng-keypress="ClearAdvSearch();($event.which === 13)?GetQueueList(Que,false):0"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="InputBoxDiv">
+                                        <input class="form-control Capitalize" type="text" id="" ng-model="Que.PatientName" placeholder="Name/MRN/Mobile No/OPD No" replace="[^a-zA-Z]" with="" ng-keypress="ClearAdvSearch();($event.which === 13)?GetQueueList(Que,false):0">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="SearchBtnContainer">
+                            <div class="InputBoxDiv">
+                                <!--ng-disabled="!(Que.Date || Que.DeptID!=0 || Que.PatientName || Que.DocID!=0) ? true :false"-->
+                                <button id="" type="button" class="btn btn-primary btn_save" ng-click="ClearAdvSearch();GetQueueList(Que)" ng-keypress="($event.which === 13)?GetQueueList(Que,false):0">@PIVF.Gemino.LanguageResource.Resources.btnSearch</button>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Main Search Box End-->
+                <!-- Advance Search Box Start -->
+                <div class="MainSearchBoxContainer" ng-show="show==false">
+                    <div class="BlackSearchBoxSection">
+                        <div class="SearchInputGroupContainer">
+                            <div class="row">
+                                @*<div class="col-md-3 col-lg-3">
+                                        <div class="InputBoxDiv">
+                                            <input class="form-control " type="text" id="" ng-model="Que.MRN" placeholder="PRN" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3">
+                                        <div class="InputBoxDiv">
+                                            <input class="form-control alignRight" type="text" id="" ng-model="Que.MobNo" multi-validation="MobNoStartWith" ng-pattern="/^\d{10}$/" placeholder="@PIVF.Gemino.LanguageResource.Resources.lblMobNo" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0" maxlength="10">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3">
+                                        <div class="InputBoxDiv">
+                                            <input class="form-control " type="text" id="" ng-model="Que.TokenNo" placeholder="@PIVF.Gemino.LanguageResource.Resources.lblTokenNo" replace="[^0-9]" with="" maxlength="3" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0()">
+                                        </div>
+                                    </div>*@
+
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="InputBoxDiv">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" id="" ng-model="Que.VisitFromDate" placeholder="Visit Date - From" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="popup2.opened" datepicker-options="dateOptionsDOB" alt-input-formats="altInputFormats">
+                                            <span class="input-group-addon" id="" ng-click="open2()"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-lg-3 ">
+                                    <div class="InputBoxDiv">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" id="" ng-model="Que.VisitToDate" placeholder="Visit Date - To" aria-describedby="" uib-datepicker-popup="{{format}}" show-button-bar="false" is-open="popup3.opened" datepicker-options="dateOptionsDOB" alt-input-formats="altInputFormats" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0">
+                                            <span class="input-group-addon" id="" ng-click="open3()"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <div class="InputBoxDiv">
+                                        <select class="form-control " id="" ng-model="Que.VisitStatusID" ng-options="item.ID as item.Type for item in VisitStatusList" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0"></select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-lg-3 ">
+                                    <div class="InputBoxDiv">
+                                        <button id="" type="button" class="btn btn-primary m-b-0" ng-click="ClearSearch();GetQueueList(Que,false)">@PIVF.Gemino.LanguageResource.Resources.btnSearch</button>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-3 col-lg-3">
+                                        <div class="InputBoxDiv">
+                                            <select class="form-control " id="" ng-model="Que.SpclRegID" ng-options="item.ID as item.Description for item in SpeclRegTypeList" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-lg-3">
+                                        <div class="InputBoxDiv">
+                                            <input class="form-control" type="text" id="" ng-model="Que.OPDNo" placeholder="@PIVF.Gemino.LanguageResource.Resources.lblOPDNo" replace="[^0-9]" with="" ng-keypress="ClearSearch();($event.which === 13)?GetQueueList(Que,false):0">
+                                        </div>
+                                    </div>*@
+
+
+                                @*<div class="col-md-12 col-lg-12 text-center">
+                                        <div class="InputBoxDiv">
+                                            <!- -ng-disabled="!(Que.MRN || Que.OPDNo || Que.TokenNo || Que.VisitStatusID!=0 || Que.MobNo || Que.SpclRegID!=0 || (Que.VisitFromDate && Que.VisitToDate)) ? true :false"- ->
+                                            <button id="" type="button" class="btn btn-primary btn_save" ng-click="ClearSearch();GetQueueList(Que,false)"><span><i class="fa fa-search" aria-hidden="true"></i></span>@PIVF.Gemino.LanguageResource.Resources.btnSearch</button>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                        @*<div class="SearchBtnContainer AdvSearchBtnContainer">
+                                <div class="InputBoxDiv">
+                                    <button id="" type="button" class="btn btn-primary btn_save" ng-click="ClearSearch();GetQueueList(Que,false)">@PIVF.Gemino.LanguageResource.Resources.btnSearch</button>
+                                </div>
+                            </div>*@
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Advance Search Box End-->
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="form_Content p-t-10" style="height:450px;">
+                <div class="row">
+                    <div class="find_title">
+                        <div class="col-md-6">
+                            <span>@PIVF.Gemino.LanguageResource.Resources.Total_Count :</span>
+                            <span class="total_count">{{TotalItems}}</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button class="btn-link" title="Print" ng-click="GetQueueList(Que,true)"><span class="glyphicon glyphicon-print"></span>@*@PIVF.Gemino.LanguageResource.Resources.lblPrint*@</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="tableToExport" style="max-height: 360px;min-height: 360px;">
+                            <table class="table table-hover table-striped GridTable" style="min-width:1400px">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>@PIVF.Gemino.LanguageResource.Resources.lblTokenNo<br /> <b>@PIVF.Gemino.LanguageResource.Resources.lblCabin</b></th>
+                                        <th>@PIVF.Gemino.LanguageResource.Resources.lblDate</th>
+                                        <th>@PIVF.Gemino.LanguageResource.Resources.lblOPDNo</th>
+                                        <th>Name</th>
+                                        <th>Partner Name</th>
+                                        <th>Age/Gender</th>
+                                        <th>Mobile No.</th>
+                                        <th>@PIVF.Gemino.LanguageResource.Resources.lblDoctor<br /><b>@PIVF.Gemino.LanguageResource.Resources.lblDepartment</b></th>
+                                        <th>@PIVF.Gemino.LanguageResource.Resources.lblVisitStatus</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="parent_row" ng-click="HighliteRow($index)" ng-repeat="item in QueueList" ng-class="{activeTRColor: high==$index}">
+                                    <tr>
+                                        <td class="showRowButton w-5">
+                                            <div class="arrowWrap"> <span class="collapse-arrow collapsed" data-toggle="collapse" data-target="{{'#'+($index+1)}}"></span> </div>
+                                        </td>
+                                        <td>{{item.TokenNo}}<br><b>{{item.Cabin}}</b></td>
+                                        <td>{{item.Date|date:'dd-MMM-yyyy' }} <br /> <b>{{item.Date| date: 'hh:mm'}}</b></td>
+                                        <td>{{item.OPDNO}}</td>
+                                        <td class="Capitalize">{{item.Prefix}} {{item.PatientName}}<br /><b>{{item.MRNo}}</b></td>
+                                        <td class="Capitalize">{{item.PartnerName}}</td>
+                                        <td>{{item.age +' yrs/ '+item.GenderDescription}}</td>
+                                        <td>{{item.MobNo}}</td>
+                                        <td>{{item.DoctorName}}<br /><b>{{item.Department}}</b></td>
+                                        <td><b>{{item.VisitStatus}}</b></td>
+                                        <td class="text-center"><button class="btn_info" type="button" id="" value="" aria-expanded="false" ng-click="ShowAddInfo(item)" data-target="#ViewQuePatient" aria-controls="ViewQuePatient"></button></td>
+                                    </tr>
+                                    <tr class="AppointmentDetailTR" id="{{$index+1}}">
+                                        <td colspan="13">
+                                            <div class="ButtonsContainer text-left">
+                                                <button id="" type="button" class="btn btn-icon btn-secondary" ng-click="CloseVisit(item)" title="Close Visit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                <button id="" type="button" class="btn btn-icon btn-secondary" ng-click="RedirectToEMR(item)" title="EMR"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                                                <button id="" type="button" class="btn btn-icon btn-secondary" ng-click="RedirectToBill(item)" title="Bill"><i class="fa fa-calculator" aria-hidden="true"></i></button>
+                                                <button id="" type="button" class="btn btn-icon btn-secondary" ng-click="RedirectToAdvance(item)" title="Advance"><i class="fa fa-money" aria-hidden="true"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @*<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="GridSpinner" spinner-start-active="true"></span>*@
+                        </div>
+                    </div>
+                    @*<uib-pagination total-items="TotalItems" ng-model="CurrentPage" ng-change="PageChange()" max-size="maxSize" class="pagination-sm  pull-right" boundary-links="true" num-pages="numPages" items-per-page="10" first-text="@PIVF.Gemino.LanguageResource.Resources.lblFirst" previous-text="@PIVF.Gemino.LanguageResource.Resources.lblPrevious" next-text="@PIVF.Gemino.LanguageResource.Resources.lblNext" last-text="@PIVF.Gemino.LanguageResource.Resources.lblLast"></uib-pagination>*@
+                    <!-- Button group row -->
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- Page Content End -->
+<!-- page-wrapper End -->
+
+<script type="text/ng-template" id="AddInfo">
+    @*<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog  modal-md">*@
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ng-click="ReasonCancel();" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">@PIVF.Gemino.LanguageResource.Resources.lblAdditionalInformation</h4>
+        </div>
+        <div class="modal-body" id="ViewQuePatient">
+            <!-- Modal content Patient Info Start -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="BlueWrap">
+                        <div class="ProfileImgWrap">
+                            <img ng-if="Pat.PhotoString !=''" ng-src="{{Pat.PhotoString}}" class="profile">
+                            <img ng-if="Pat.PhotoString =='' && Pat.GenderId==1" ng-src="../images/Male_default.jpg" class="profile">
+                            <img ng-if="Pat.PhotoString =='' && Pat.GenderId==2" ng-src="../images/Female_default.jpg" class="profile">
+                        </div>
+                        <div class="ProfileInfoWrap">
+                            <p class="m-b-0">
+                                <span class="PatientName p-l-20">{{Pat.Prefix}}</span>
+                                <span class="PatientName ">{{Pat.PatientName}}</span>
+                            </p>
+                            <ul class="profile-data">
+                                <li>
+                                    <div class="iconInfoLine">
+                                        @*<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+
+                                            <span class="LinkName">{{Pat.MobileCountryCode}} {{Pat.ContactNo1}}</span>*@
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="iconInfoLine">
+                                        @*<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+
+                                            <span class="LinkName"> {{Pat.ContactNo2}}</span>*@
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-horizontal">
+                <div class="col-lg-12 col-md-6">
+                    <div class="form-group">
+                        <label class="col-lg-4 col-md-4 col-sm-4 control-label " for="">@PIVF.Gemino.LanguageResource.Resources.lblRefDoc :</label>
+                        <label class="col-lg-8 col-md-8 col-sm-8 control-label  p-l-0" for="">{{Pat.RefDoc}}</label>
+                    </div>
+                </div>
+                
+                <div class="col-lg-12 col-md-6">
+                    <div class="form-group">
+                        <label class="col-lg-4 col-md-4 col-sm-4 control-label " for="">@PIVF.Gemino.LanguageResource.Resources.lblSpecialRegistration :</label>
+                        <label class="col-lg-8 col-md-8 col-sm-8 control-label  p-l-0" ng-if="Pat.IsSpecialReg == true" for="">YES</label>
+                        <label class="col-lg-8 col-md-8 col-sm-8 control-label  p-l-0" ng-if="Pat.IsSpecialReg == false" for="">NO</label>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="form-group">
+                        <label class="col-lg-4 col-md-4 col-sm-4 control-label " for="">@PIVF.Gemino.LanguageResource.Resources.lblRemark :</label>
+                        <label class="col-lg-8 col-md-8 col-sm-8 control-label p-r-0 p-l-0" for="">{{Pat.Remarks}}</label>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="form-group">
+                        <label class="col-lg-4 col-md-4 col-sm-4 control-label " for="">@PIVF.Gemino.LanguageResource.Resources.lblVisitMarkedby :</label>
+                        <label class="col-lg-8 col-md-8 col-sm-8 control-label p-r-0 p-l-0" for="">{{Pat.VisMarkedBy}}</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal content Patient Info End -->
+        </div>
+    </div>
+    @*</div>
+        </div>*@
+</script>

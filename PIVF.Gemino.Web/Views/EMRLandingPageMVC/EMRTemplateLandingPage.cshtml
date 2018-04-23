@@ -1,0 +1,103 @@
+﻿
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/strap.min.css" rel="stylesheet" />
+<link href="~/Content/angular-ui-tree.min.css" rel="stylesheet" />
+<link href="~/Content/angular-ui-tree-theme.css" rel="stylesheet" />
+<link href="~/Content/addon.css" rel="stylesheet" />
+<link href="~/Content/schema-form-file.css" rel="stylesheet" />
+
+<div ng-controller="EMRTemplateCtr" class="page_EMRTemplate">
+    @*ng-init="PageInit()"*@
+    <form name="frmSemenPrep" novalidate autocomplete="off">
+        <div class="list_pageLeft">
+            <h5 class="subTitle">Table of Contents</h5>
+            <div class="list_content" ng-scrollbars ng-scrollbars-config="config">
+                <table class="table table-hover table-striped table-hover">
+                    @*style="width: 760px;"*@
+                    <thead>
+                        <tr>
+                            @*<th>&nbsp;</th>*@
+                            <th>S.No.</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in TemplateDetailList">
+                            @*<td class="cycle_actions">
+                                    <div class="dropdown">
+                                        <a href="" class="dropdown-toggle" id="cycleAction_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="glyphicon glyphicon-cog"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="cycleAction_1">
+                                            <li><a href="#">Print</a></li>
+                                        </ul>
+                                    </div>
+                                </td>*@
+                            <td> <a class="txt_bold" ng-click="RedirectToSelf(item.ID,item.UnitID)">{{item.SNO}}</a></td>
+                            <td>{{item.TempDate | date :  "dd.MMM.yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </form>
+    <section class="list_form m-t-35">
+
+        <div class="Emrform_Content" id="printSection1">
+            @*<form sf-schema="schema" sf-form="form" sf-model="model" ng-submit="submitForm(form,model)"></form>*@
+            <form sf-schema="schema" name="myForm" sf-form="form" sf-model="model" ng-submit="submitForm(myForm)"></form>
+            <div>
+                @*Images List*@
+                <table>
+                    <tr ng-repeat="item in DesignEMRVO.ListPatientImages track by $index">
+                        <td>
+                            <div>
+                                <img ng-src="{{'data:image/jpg;base64,' + item.Photo}}" width="100px" height="100px" />
+                                <button class="btn btn-default" ng-show="!item.rowdisable" type="button" ng-click="RemoveImg(item)"> Cancel</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section><div class="clear"></div>
+
+    <div class="row form-horizontal m-t-10">
+        <div class="col-lg-12 text-right">
+            <button class="btn btn-primary" type="button" id="" value="" ng-click="ShowUploadedImages()">Show Uploaded Files</button>
+            <button class="btn btn-primary" type="button" id="" value="" ng-click="SaveUpdateEMRTemplate()">Save</button>
+            <button class="btn btn-primary" type="button" id="" value="" ng-print print-element-id="printSection1">Print</button>
+            <button class="btn btn-default" type="button" id="" value="" ng-click="Clear()">Clear</button>
+            <button class="btn btn-default" type="button" id="" value="" ng-click="CancelMain()">Cancel</button>
+        </div>
+    </div>
+
+    <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="GridSpinner" spinner-start-active="true"></span>
+
+</div>
+@*Visit Select Model box*@
+<script type="text/ng-template" id="modelID">
+    <table class="table table-hover table-striped table-hover selectPatient_item" id="">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Date</th>
+                <th>TempName </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Item in TemplateList">
+                @*<td><a href="" ng-click="SelectPatient(Item)">Select</a></td>*@
+                <td class="text-center">
+                    <input type="checkbox" name="" ng-click="SelectPatient(Item)" id="{{$index}}">
+                    <label for="{{$index}}"><span class="checkbox"></span></label>
+                </td>
+                <td>{{Item.TempDate | date:"dd-MM-y"}}</td>
+                <td>{{Item.TempName}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</script>
+

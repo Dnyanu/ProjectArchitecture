@@ -1,0 +1,131 @@
+﻿/*Custome Css Start*/
+   .ng-isolate-scope .ng-scope {
+       /*Commented by Sayali for addressing dynamically generating dropdown issue. */ 
+       /*float:left;*/ 
+        }
+        .ng-scope.sortable {
+            background: #759ab4;
+        }
+        .ui-grid-menu .ui-grid-menu-inner ul li {
+            background: #759ab4;
+            float: none;
+        }
+        .ui-grid-menu .ui-grid-menu-inner ul {
+            background: #759ab4;
+        }
+        .FormContentContainer {
+            padding: 10px;
+            background-color: #f1f1f1;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+        }
+.grid1475746556530 .ui-grid-row {
+     height: 35px!important;
+}
+.grid1476443717664 .ui-grid-render-container-body .ui-grid-header-canvas{
+    background:black;
+}
+
+.iconwidth24 {
+    width:24px
+}
+
+.ui-grid-header-cell.ui-grid-clearfix.ng-scope.ng-isolate-scope {
+    background: #759ab4;
+}
+/*.total_count{
+	 background-color: #20a8dc;
+	color: white;
+	border-radius: 84px;
+	padding: 2px 10px 4px 10px;
+}
+    .print_icon {
+        color:#333;
+    }
+    .print_icon:hover{
+        color:#333;
+    }
+.find_title .glyphicon{
+	    font-size: 20px;
+		color: #575656;
+}
+.glyphi_lable{
+        padding: 0px 12px;
+    border-right: 1px solid #9f9c9c;
+    border-radius: 1px;
+    font-size: 18px;
+	color:#333;
+    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+}*/
+   .count_label{
+       font-size: 16px;
+   } 
+.record_count {
+    float:right;
+
+}
+p.grid_title {
+    float: left;
+}
+/*Custome Css End*/
+
+/*Ready css Start*/
+.grid {
+     width: 100%;
+     /*height: 445px; change*/
+   
+}
+i.ui-grid-icon-menu {
+    color: #fff;
+}
+
+/*Ready CSS End*/
+
+/*added by manohar for UI Grid columns Disable on mousehover on 24_11_2016*/
+.Columns{
+       cursor:default;
+    }
+
+/* added by Suresh 08-02-2017 */	
+.ng-scope.sortable {
+	 background: #fff;
+	 color: #888;
+	 font-weight: bold;
+}
+	
+.ui-grid-header-cell.ui-grid-clearfix.ng-scope.ng-isolate-scope {
+	background: #fafbfc;
+}
+
+.grid {
+    /*height: 456px;*/ 
+    max-height: 456px;/*change*/
+    min-height: 425px;/*change*/
+}
+
+.ui-grid-menu .ui-grid-menu-inner ul li {
+    background: #f7ae3c;
+}
+
+.ui-grid-menu .ui-grid-menu-inner ul li:hover{
+	 background:#f77600;
+	 cursor:pointer;
+}	
+.ui-grid-row .ng-isolate-scope{
+    display: flex !important;
+}
+.ui-grid-viewport{
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+/*.ui-grid:hover .ui-grid-viewport{
+    overflow-y: scroll !important;
+}*/
+
+.ui-grid-column-menu-button{
+    display: none !important;
+}
+/* .grid1486541792641 .ui-grid-coluiGrid-0007{
+	width:100% !important;
+}
+ */

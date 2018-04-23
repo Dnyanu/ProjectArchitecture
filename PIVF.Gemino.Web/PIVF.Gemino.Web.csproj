@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{236A8988-BC1F-4566-9082-222C6E9DA6C5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PIVF.Gemino.Web</RootNamespace>
+    <AssemblyName>PIVF.Gemino.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Audit.NET">
+      <HintPath>Reference dll\Audit.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Audit.NET.SqlServer">
+      <HintPath>Reference dll\Audit.NET.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Audit.WebApi">
+      <HintPath>Reference dll\Audit.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.4\lib\net45\CommonServiceLocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.1.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LINQKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.2\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>Reference dll\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>Reference dll\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.WebApi, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.0.0\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.0.0\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference dll\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Authentication\AuthenticationController.cs" />
+    <Compile Include="Api\Authentication\TicketsController.cs" />
+    <Compile Include="Api\AuthorizeEchoConnection.cs" />
+    <Compile Include="Api\CommonAPIController.cs" />
+    <Compile Include="Api\EMR\LandingPage\EMRLandingPageAPIController.cs" />
+    <Compile Include="Api\Master\Common\CommonController.cs" />
+    <Compile Include="Api\Master\Configuration\UserAPIController.cs" />
+    <Compile Include="Api\Master\Configuration\UserRoleController.cs" />
+    <Compile Include="Api\QueueMgt\QueueMgtController.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ODataConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="App_Start\UnityWebApiActivator.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Authentication\AddClientsAndRefreshTokenTables.cs" />
+    <Compile Include="Authentication\AuthContext.cs" />
+    <Compile Include="Authentication\AuthRepository.cs" />
+    <Compile Include="Authentication\ChallengeResult.cs" />
+    <Compile Include="Authentication\Client.cs" />
+    <Compile Include="Authentication\Configuration.cs" />
+    <Compile Include="Authentication\enum.cs" />
+    <Compile Include="Authentication\ExternalLoginViewModel.cs" />
+    <Compile Include="Authentication\FacebookAuthProvider.cs" />
+    <Compile Include="Authentication\GoogleAuthProvider.cs" />
+    <Compile Include="Authentication\Helper.cs" />
+    <Compile Include="Authentication\RefreshTokensController.cs" />
+    <Compile Include="Authentication\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Authentication\SimpleRefreshTokenProvider.cs" />
+    <Compile Include="Authentication\StartUp.cs" />
+    <Compile Include="Controllers\Authentication\AuthenticationController.cs" />
+    <Compile Include="Controllers\EMR\EMRLandingPage\EMRLandingPageMVCController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QueueMgt\QueueMgtController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Authentication\Startup1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\angular-toasty.min.css" />
+    <Content Include="Content\angular-ui-tree-theme.css" />
+    <Content Include="Content\angular-ui-tree.min.css" />
+    <Content Include="Content\angular-wizard.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Dev.css" />
+    <Content Include="Content\dev_old.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\ie10-viewport-bug-workaround.css" />
+    <Content Include="Content\isteven-multi-select.css" />
+    <Content Include="Content\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\ng-img-crop.css" />
+    <Content Include="Content\ngDialog-Plain.css" />
+    <Content Include="Content\ngDialog-theme-default.min.css" />
+    <Content Include="Content\ngDialog.css" />
+    <Content Include="Content\ngPrint.min.css" />
+    <Content Include="Content\perfect-scrollbar.min.css" />
+    <Content Include="Content\select.css" />
+    <Content Include="Content\select.min.css" />
+    <Content Include="Content\strap.min.css" />
+    <Content Include="Content\Style.css" />
+    <Content Include="Content\sweetalert.css" />
+    <Content Include="Content\ui-cropper.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\opensans-bold-webfont.svg" />
+    <Content Include="fonts\opensans-regular-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\Active.png" />
+    <Content Include="images\apple-touch-icon.png" />
+    <Content Include="images\appointment.jpg" />
+    <Content Include="images\bdr_sideNav.png" />
+    <Content Include="images\bg_header.png" />
+    <Content Include="images\CollapseDown.png" />
+    <Content Include="images\CollapseRight.png" />
+    <Content Include="images\CollapseRight_black.png" />
+    <Content Include="images\deactive.png" />
+    <Content Include="images\Default_user.png" />
+    <Content Include="images\Diagnosis.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\Female_default.jpg" />
+    <Content Include="images\Gemino_logo.png" />
+    <Content Include="images\ico_add.png" />
+    <Content Include="images\ico_delete.png" />
+    <Content Include="images\ico_info.png" />
+    <Content Include="images\ico_sprite_add-delete.png" />
+    <Content Include="images\ico_sprite_sys-conf.png" />
+    <Content Include="images\ico_today.png" />
+    <Content Include="images\img_idProof.jpg" />
+    <Content Include="images\img_oocyte-d0.png" />
+    <Content Include="images\Investigation.jpg" />
+    <Content Include="images\left_nav_bg.jpg" />
+    <Content Include="images\left_nav_bg.png" />
+    <Content Include="images\Liberaa_logo.jpg" />
+    <Content Include="images\Liberaa_logo_old.jpg" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\loading_dark.gif" />
+    <Content Include="images\lock.png" />
+    <Content Include="images\loginBg.jpg" />
+    <Content Include="images\logo_Palash_IVF.png" />
+    <Content Include="images\logo_PIVF.png" />
+    <Content Include="images\Male_default.jpg" />
+    <Content Include="images\nav.png" />
+    <Content Include="images\nav_arrow.png" />
+    <Content Include="images\PIVF-Logo-White.PNG" />
+    <Content Include="images\PIVF_login_Logo.png" />
+    <Content Include="images\PIVF_Logo.png" />
+    <Content Include="images\priscription.jpg" />
+    <Content Include="images\SubCollapseDown.png" />
+    <Content Include="images\SubCollapseRight.png" />
+    <Content Include="images\Tab_Down_Arrow.png" />
+    <Content Include="images\Tab_Right_Arrow.png" />
+    <Content Include="images\Unlock.png" />
+    <Content Include="Reference dll\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="Reference dll\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="Reference dll\System.Net.Http.Extensions.dll" />
+    <Content Include="Reference dll\System.Net.Http.Formatting.dll" />
+    <Content Include="Reference dll\System.Net.Http.Primitives.dll" />
+    <Content Include="Reference dll\System.Web.Http.dll" />
+    <Content Include="Reference dll\System.Web.Mvc.dll" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\css\angular-bootstrap-calendar.css" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\css\angular-bootstrap-calendar.min.css" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar-tpls.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar-tpls.min.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar.min.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendar.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarDayView.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarHourList.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarMonthCell.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarMonthCellEvents.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarMonthView.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarSlideBox.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarWeekView.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\templates\calendarYearView.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.gitignore" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\demo-app.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\demo-controller.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-144x144.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-192x192.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-36x36.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-48x48.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-72x72.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\android-chrome-96x96.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-114x114.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-120x120.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-144x144.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-152x152.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-180x180.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-57x57.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-60x60.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-72x72.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-76x76.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon-precomposed.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\apple-touch-icon.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\browserconfig.xml" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\favicon-16x16.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\favicon-32x32.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\favicon-96x96.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\favicon.ico" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\mstile-144x144.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\mstile-150x150.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\mstile-310x150.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\mstile-310x310.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\mstile-70x70.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\index.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\gulpfile.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\index.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\karma.conf.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\paths.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\screenshots\day.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\screenshots\hour.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\screenshots\minute.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\screenshots\month.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\screenshots\year.png" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\css\datetimepicker.css" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\js\datetimepicker.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\js\datetimepicker.templates.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\templates\datetimepicker.html" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\commonjs\browserify.test.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\beforeRender.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\configurationValidation.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\configureOn.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\datetimepickerConfig.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\dropdownSelector.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\minuteStep.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\minView.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\onSetTime.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\renderOn.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\configuration\startView.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\model\modelType.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\model\ngModelController.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\css.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\de\day.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\de\hour.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\de\minute.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\de\month.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\de\year.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\en\day.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\en\hour.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\en\minute.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\en\month.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\en\year.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\zh_cn\day.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\zh_cn\hour.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\zh_cn\minute.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\zh_cn\month.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\view\zh_cn\year.spec.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\webpack\app.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\webpack\karma.conf.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\webpack\webpack.conf.js" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\test\webpack\webpack.test.js" />
+    <Content Include="Scripts\AngularPackages\angular-filter.min.js" />
+    <Content Include="Scripts\AngularPackages\angular-local-storage.min.js" />
+    <Content Include="Scripts\AngularPackages\angular-route.min.js" />
+    <Content Include="Scripts\AngularPackages\angular-spinner.js" />
+    <Content Include="Scripts\AngularPackages\angular-toasty.min.js" />
+    <Content Include="Scripts\AngularPackages\angular.min.js" />
+    <Content Include="Scripts\AngularPackages\bootstrap.min.js" />
+    <Content Include="Scripts\AngularPackages\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\AngularPackages\ocLazyLoad.min.js" />
+    <Content Include="Scripts\AngularPackages\pdf.js" />
+    <Content Include="Scripts\AngularPackages\pdfmake.js" />
+    <Content Include="Scripts\AngularPackages\Slick\angular-slick\dev_temp.css" />
+    <Content Include="Scripts\AngularPackages\Slick\angular-slick\slick.css" />
+    <Content Include="Scripts\AngularPackages\Slick\angular-slick\slick.js" />
+    <Content Include="Scripts\AngularPackages\Slick\angular-slick\slick.min.js" />
+    <Content Include="Scripts\AngularPackages\Slick\angular-slick\Style_temp.css" />
+    <Content Include="Scripts\AngularPackages\Slick\slick-carousel\slick-theme.css" />
+    <Content Include="Scripts\AngularPackages\Slick\slick-carousel\slick.js" />
+    <Content Include="Scripts\AngularPackages\spin.js" />
+    <Content Include="Scripts\AngularPackages\SweetAlert.min.js" />
+    <Content Include="Scripts\AngularPackages\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\AngularPackages\ui-grid.js" />
+    <Content Include="Scripts\AngularPackages\vfs_fonts.js" />
+    <Content Include="Scripts\AngularUI\bootstrap.js" />
+    <Content Include="Scripts\AngularUI\bootstrap.min.js" />
+    <Content Include="Scripts\AngularUI\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\AngularUI\ui-bootstrap.js" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\Authentication\DefaultPageCtlr.js" />
+    <Content Include="Scripts\app\controllers\Authentication\HomeCtlr.js" />
+    <Content Include="Scripts\app\controllers\Authentication\indexController.js" />
+    <Content Include="Scripts\app\controllers\Authentication\LayOutController.js" />
+    <Content Include="Scripts\app\controllers\Authentication\loginController.js" />
+    <Content Include="Scripts\app\controllers\Authentication\refreshController.js" />
+    <Content Include="Scripts\app\controllers\Authentication\signupController.js" />
+    <Content Include="Scripts\app\controllers\Authentication\tokensManagerController.js" />
+    <Content Include="Scripts\app\controllers\BreadCum\BreadCumCtrl.js" />
+    <Content Include="Scripts\app\controllers\EMR\LandingPage\EMRLandingPageCtr.js" />
+    <Content Include="Scripts\app\controllers\homeController.js" />
+    <Content Include="Scripts\app\controllers\indexController.js" />
+    <Content Include="Scripts\app\controllers\Master\Configuration\UserController.js" />
+    <Content Include="Scripts\app\controllers\Master\Configuration\UserRoleController.js" />
+    <Content Include="Scripts\app\controllers\QueueMgt\QueueMgtctlr.js" />
+    <Content Include="Scripts\app\services\Authentication\authInterceptorService.js" />
+    <Content Include="Scripts\app\services\Authentication\authService.js" />
+    <Content Include="Scripts\app\services\Authentication\LogInService.js" />
+    <Content Include="Scripts\app\services\Authentication\tokensManagerService.js" />
+    <Content Include="Scripts\app\services\Common\CommonService.js" />
+    <Content Include="Scripts\app\services\Common\srvCommon.js" />
+    <Content Include="Scripts\app\services\EMR\LandingPage\EMRLandingPageSrv.js" />
+    <Content Include="Scripts\app\services\Master\Configuration\UserRoleService.js" />
+    <Content Include="Scripts\app\services\Master\Configuration\UserService.js" />
+    <Content Include="Scripts\app\services\QueueMgt\QueueMgtSrv.js" />
+    <Content Include="Scripts\app\StoreDataFactory.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\ui-grid.ttf" />
+    <Content Include="Content\ui-grid.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\opensans-bold-webfont.eot" />
+    <Content Include="fonts\opensans-bold-webfont.ttf" />
+    <Content Include="fonts\opensans-bold-webfont.woff" />
+    <Content Include="fonts\opensans-bold-webfont.woff2" />
+    <Content Include="fonts\opensans-regular-webfont.eot" />
+    <Content Include="fonts\opensans-regular-webfont.ttf" />
+    <Content Include="fonts\opensans-regular-webfont.woff" />
+    <Content Include="fonts\opensans-regular-webfont.woff2" />
+    <Content Include="Scripts\AngularPackages\Slick\slick-carousel\slick-theme.scss" />
+    <Content Include="Scripts\AngularPackages\Slick\slick-carousel\slick.scss" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\.bower.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\bower.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\CHANGELOG.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\css\angular-bootstrap-calendar.min.css.map" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar-tpls.min.js.map" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\dist\js\angular-bootstrap-calendar.min.js.map" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\LICENSE" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\package.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\README.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\calendar.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\day.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\events.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\grid.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\month.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\theme.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\variables.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-calendar\src\less\week.less" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.bower.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.csscomb.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.github\contributing.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.github\issue_template.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.github\pull_request_template.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.jshintrc" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.npmignore" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.stylelintrc" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\.travis.yml" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\demo\favicons\manifest.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\LICENSE" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\package.json" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\README.md" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\css\datetimepicker.css.map" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\scss\datetimepicker.scss" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\scss\_core.scss" />
+    <Content Include="Scripts\AngularPackages\angular-bootstrap-datetimepicker\src\scss\_variables.scss" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Unity.Mvc4.README.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\DefaultPage.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Authentication\SignUp.cshtml" />
+    <Content Include="Views\QueueMgt\QueueList.cshtml" />
+    <Content Include="Views\EMRLandingPageMVC\EMRLandingPage.cshtml" />
+    <Content Include="Views\EMRLandingPageMVC\EMRTemplateLandingPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="images\backgrounds\" />
+    <Folder Include="images\Blue\" />
+    <Folder Include="images\cursors\" />
+    <Folder Include="images\icons\" />
+    <Folder Include="images\mainnav\" />
+    <Folder Include="images\sprites\" />
+    <Folder Include="images\White\" />
+    <Folder Include="Models\" />
+    <Folder Include="Scripts\app\CycleWisePagesConfig\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataBaseConfiguration\PIVF.Gemino.DataBaseConfiguration.csproj">
+      <Project>{C7CC4EFF-8CB8-40A0-A2A1-B156234FEA75}</Project>
+      <Name>PIVF.Gemino.DataBaseConfiguration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.BusinessLayer\PIVF.Gemino.BusinessLayer.csproj">
+      <Project>{2E9C0060-F946-4087-B4E1-8430A21CFB5F}</Project>
+      <Name>PIVF.Gemino.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.DataAccessLayer\PIVF.Gemino.DataAccessLayer.csproj">
+      <Project>{E81B7C7A-86C0-4385-B78A-032D0920CC7B}</Project>
+      <Name>PIVF.Gemino.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.Entities\PIVF.Gemino.Entities.csproj">
+      <Project>{CA020E4A-D1AD-421D-BDA8-400226BCB9C6}</Project>
+      <Name>PIVF.Gemino.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.LanguageResource\PIVF.Gemino.LanguageResource.csproj">
+      <Project>{b7c7951a-269a-4cec-b5f0-af4ab2612a2e}</Project>
+      <Name>PIVF.Gemino.LanguageResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.Repository.Pattern.Ef6\PIVF.Gemino.Repository.Pattern.Ef6.csproj">
+      <Project>{CB3220D1-AD86-4E9C-85FB-6360A19E54C3}</Project>
+      <Name>PIVF.Gemino.Repository.Pattern.Ef6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.Repository.Pattern\PIVF.Gemino.Repository.Pattern.csproj">
+      <Project>{242EEC2C-E2F0-4F04-8469-848357A00A82}</Project>
+      <Name>PIVF.Gemino.Repository.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIVF.Gemino.Service.Pattern\PIVF.Gemino.Service.Pattern.csproj">
+      <Project>{9B3DB9D7-8B3A-4D02-9616-A8A389782A18}</Project>
+      <Name>PIVF.Gemino.Service.Pattern</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55960</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55960/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

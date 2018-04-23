@@ -1,0 +1,121 @@
+﻿<style>
+    .scroller {
+        position: relative; /* relative or absolute positioning required by Perfect Scrollbar */
+        max-height: 250px; /* height must be limited to induce scrolling behavior */
+    }
+</style>
+
+<div ng-controller="EMRLandingPageCtr">
+    <div class="row p-t-10" ng-init="GetEMRLandingPageData()">
+        <!--  <section class="col-lg-12"><h5 class="subTitle">Embryo Details</h5></section> -->
+        <div class="col-md-4 col-lg-4">
+            @*<div class="imgWrap prescriptionImg">*@
+            @*<img class="prescriptionImg" src="~/images/priscription.jpg" />*@
+            @*</div>*@
+
+            <div class="icoImgPrescription"></div>
+
+            <div class="boxGridWrap bdrEMR-p">
+                <section class=""><h5 class="subTitle txtBlue">Prescription</h5></section>
+                <div class="table-responsive fixed_header" style="min-height:250px;max-height:250px;">
+                    <table class="table " id="profile_table" style="min-height:250px;max-height:250px;min-width: 465px;">
+                        <thead>
+                            <tr>
+                                <th st-ratio="20">Date</th>
+                                <th st-ratio="30">Drug Name</th>
+                                <th st-ratio="30">Molecule Name</th>
+                                <th st-ratio="20">Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="" ng-repeat="item in PrescriptionList">
+                                <td st-ratio="20">{{item.PrescriptionDate | date:'dd-MMM-yyyy'}}</td>
+                                <td st-ratio="30">{{item.DrugName}}</td>
+                                <td st-ratio="30">{{item.MoleculeName}}</td>
+                                <td st-ratio="20">{{item.Frequency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right p-r-10">
+                    @*<button class="btn btn-primary btn_readMore colorBlue text-right" type="button" id="" ng-click="Redirect('Prescription')" value="">Read more</button>*@
+                    <button class="btn btn-primary colorBlue text-right" type="button" id="" ng-click="RedirectNew('Prescription')" value=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+
+            @*<img class="InvestigationImg" src="~/images/Investigation.jpg" /><div class="clear"></div>*@
+
+            <div class="icoImgInvestigations"></div>
+
+            <div class="boxGridWrap bdrEMR-i">
+                <section class=""><h5 class="subTitle txtGreen">Investigations & Procedure</h5></section>
+                <div class="table-responsive fixed_header">
+                    <table class="table " id="profile_table" style="min-height:250px;max-height:250px;">
+                        <thead>
+                            <tr>
+                                <th st-ratio="40">Date</th>
+                                <th st-ratio="60">Service Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="i in InvestigationList">
+                                <td st-ratio="40">{{i.InvDate | date:'dd-MMM-yyyy'}}</td>
+                                <td st-ratio="60">{{i.ServiceName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right p-r-10">
+                    <div class="btn btn-primary colorGreen text-right relDiv">
+                        <input id="dropList" type="checkbox">
+                        <label class="drop m-0" for="dropList"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+                        <div class="listMenu">
+                            <ul>
+                                <li ng-click="Redirect('Investigation')">Investigations</li>
+                                <li ng-click="Redirect('Procedures')">Procedures</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    @*<button class="btn btn-primary btn_readMore colorGreen text-right" type="button" id="" ng-click="Redirect('Investigation')" value="">+Investigations</button>
+                        <button class="btn btn-primary btn_readMore colorGreen text-right" type="button" id="" ng-click="Redirect('Procedures')" value="">+Procedures</button>*@
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+
+            @*<img class="DiagnosisImg" src="~/images/Diagnosis.jpg" />*@
+
+            <div class="icoImgDiagnosis"></div>
+
+            <div class="boxGridWrap bdrEMR-d">
+                <section class=""><h5 class="subTitle txtPink">Diagnosis</h5></section>
+                <div class="table-responsive fixed_header">
+                    <table class="table " id="profile_table" style="min-height:250px;max-height:250px;">
+                        <thead>
+                            <tr>
+                                <th st-ratio="31">Diagnosis Code</th>
+                                <th st-ratio="39">Diagnosis Name</th>
+                                <th st-ratio="30">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" ng-repeat="i in DiagnosisList">
+                                <td st-ratio="31">{{i.DiagnoCode}}</td>
+                                <td st-ratio="39">{{i.DiagnoName}}</td>
+                                <td st-ratio="30">{{i.DiagnoType}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right p-r-10">
+                    <button class="btn btn-primary colorPink text-right" type="button" ng-click="Redirect('Diagnosis')" id="" value=""><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="GridSpinner" spinner-start-active="true"></span>
+    </div>
+</div>

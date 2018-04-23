@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .errorMsg {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<div ng-controller="loginController">
+    <form role="form" novalidate name="frmuser" class="signin-wrapper">
+        <div class="content form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-12 col-md-12 col-lg-12 control-label" for="">Username</label>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="input-group" ng-class="{'has-error':frmuser.userName.$invalid && frmuser.userName.$dirty }">
+                        <input class="form-control input-lg" placeholder="User Name" type="text" name="LoginName" ng-model="loginData.userName" ng-blur="FillUnit(loginData.userName)" id="userName" ng-required="true">
+                        <span class="input-group-addon"><i class="fa fa-user iconwidth24"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 col-md-12 col-lg-12 control-label" for="">Password</label>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="input-group" ng-class="{'has-error':frmuser.password.$invalid && frmuser.password.$dirty }">
+                        <input type="password" id="password" name="password" class="form-control input-block-level input-lg" placeholder="Password" ng-model="loginData.password" ng-required="true">
+                        <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-t-25">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="input-group">
+                        <select class="form-control input-lg" name="InputSourceOfReference" id="InputSourceOfReference" ng-model="loginData.Unit" ng-options="item.UnitName for item in UnitList"></select>
+                        <span class="input-group-addon"><i class="fa fa-hospital-o iconwidth24" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-t-25">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="actions">
+                        <input type="button" class="btn btn-primary btn-block btn-md" name="Login" value="LOG IN" ng-click="count == 0?Checkuser(loginData):0" ng-disabled="frmuser.$invalid "> @**@
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <a href="" class="text-decoration" ng-click="redirectfp()">Forgot Your Password</a>
+                </div>
+            </div>
+            <div>
+                <span class="errorMsg" ng-show="loginData.userName !== ''">{{Message}}</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
